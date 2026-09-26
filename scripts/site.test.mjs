@@ -190,3 +190,29 @@ test('navbar logo reads "GeTH Hackathon" on every page', () => {
     assert.match(read(page), /class="navbar__title[^"]*">GeTH Hackathon</, page);
   }
 });
+
+const builtCss = () =>
+  readdirSync(new URL('../build/assets/css/', import.meta.url))
+    .map((f) => readFileSync(new URL(`../build/assets/css/${f}`, import.meta.url), 'utf8'))
+    .join('');
+
+test('theme: navbar has a dark/light toggle and first visit follows the device setting', () => {
+  const html = read('index.html');
+  assert.match(html, /<button[^>]*aria-label="Switch between dark and light mode/);
+  assert.match(html, /prefers-color-scheme: ?dark/);
+});
+
+test('theme: dark palette tokens exist in the built CSS', () => {
+  const css = builtCss();
+  const dark = css.match(/html\[data-theme=["']?dark["']?\]\{([^}]*)\}/g)?.join('') ?? '';
+  for (const token of ['--paper:#0a0a0a', '--ink:#f2f2f2', '--rule:#262626', '--text-2:#b0b0b0', '--panel-bg:#161616']) {
+    assert.ok(dark.replace(/\s/g, '').toLowerCase().includes(token), `missing ${token} in dark theme`);
+  }
+});
+
+test('theme: no hard-coded greys left in component CSS (all colours come from tokens)', () => {
+  const css = builtCss().replace(/:root\{[^}]*\}|html\[data-theme=["']?dark["']?\]\{[^}]*\}/g, '');
+  const modules = css.match(/\.[A-Za-z]+_[A-Za-z0-9]{4}[^{]*\{[^}]*\}/g) ?? [];
+  const offenders = modules.filter((rule) => /#(?:555|555555|5a5a5a|1f1f1f|d0d0d0|2a2a2a)\b/i.test(rule));
+  assert.deepEqual(offenders, []);
+});

@@ -38,7 +38,7 @@ The event is modelled on DBCLS BioHackathon 2026 (https://2026.biohackathon.org)
 
 ## 3. Architecture
 
-**Stack:** Docusaurus 3.10 (classic preset) with TypeScript 6 and React 19 (as in the official 3.10 TypeScript template), on Node 20+ locally and Node 22 in CI, using npm. `trailingSlash: true`. The `docs` and `blog` plugins are disabled; only the pages plugin is used. Colour-mode switching is off and the site is light-only. `onBrokenLinks: 'throw'`.
+**Stack:** Docusaurus 3.10 (classic preset) with TypeScript 6 and React 19 (as in the official 3.10 TypeScript template), on Node 20+ locally and Node 22 in CI, using npm. `trailingSlash: true`. The `docs` and `blog` plugins are disabled; only the pages plugin is used. A navbar toggle switches light/dark (added 2026-09-26); the first visit follows the device's `prefers-color-scheme` and the visitor's choice is remembered. `onBrokenLinks: 'throw'`.
 
 ```
 docusaurus.config.ts        url/baseUrl from env (SITE_URL, BASE_URL), defaults for *.github.io
@@ -83,7 +83,7 @@ A `null` value or `exact: false` renders with a small "TBA" tag.
 
 ## 4. Visual system (Swiss, based on the reference)
 
-- **Colour:** `--accent #FF4A1C`, `--ink #0A0A0A`, `--paper #FFFFFF`, `--mute #9A9A9A`, `--rule #E6E6E6`. No other hues. The only extra colours are the disease-group tints in the charts and barcode: seven tints (one per group) drawn from accent, ink and mute.
+- **Colour:** `--accent #FF4A1C`, `--ink #0A0A0A`, `--paper #FFFFFF`, `--mute #767676`, `--rule #E6E6E6`. Dark theme: paper `#0A0A0A`, ink `#F2F2F2`, mute `#8A8A8A`, rule `#262626`, and the same accent. The Data panel and footer are always dark surfaces (the panel is `#161616` with a hairline border in dark mode). Text on accent fills is always `#0A0A0A`. No other hues. The only extra colours are the disease-group tints in the charts and barcode: seven tints (one per group) drawn from accent, ink and mute.
 - **Type:** Inter Tight (Google Fonts, weights 400/500/600), falling back to Helvetica Neue and Arial. Section headings use `clamp(2.5rem, 7vw, 5.5rem)`. The hero wordmark "GeTH Hackathon" is sized from the content width: one line on desktop (`(content width) / 7.3`, since it measures about 6.83em) and two lines below 997px (`/ 4.7`, sized to "Hackathon" at about 4.39em). It is set `nowrap` with a horizontal clip. Section headings use letter-spacing −0.05em and are set lowercase with a trailing full stop. The navbar logo reads "GeTH Hackathon". Body text is 16–18px. Labels are 11px uppercase with letter-spacing +0.04em.
 - **Motifs:**
   - a `/ ` prefix on every section heading;

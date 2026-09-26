@@ -1,4 +1,5 @@
-const INK = '#0a0a0a';
+// 'ink' follows the theme via CSS; on the always-dark Data panel it is drawn white.
+const INK = 'var(--ink)';
 const PAPER = '#ffffff';
 
 // One tint per disease group, drawn from accent / ink / mute.

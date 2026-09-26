@@ -34,7 +34,8 @@ const config: Config = {
     ],
   ],
   themeConfig: {
-    colorMode: {defaultMode: 'light', disableSwitch: true, respectPrefersColorScheme: false},
+    // First visit follows the device setting; the navbar toggle remembers the visitor's choice.
+    colorMode: {defaultMode: 'light', disableSwitch: false, respectPrefersColorScheme: true},
     navbar: {
       title: 'GeTH Hackathon',
       items: [

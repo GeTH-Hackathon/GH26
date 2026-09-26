@@ -1,19 +1,19 @@
-.panel { position: relative; background: var(--ink); color: var(--paper); border-radius: var(--radius); padding: clamp(32px, 6vw, 80px) clamp(20px, 5vw, 72px); overflow: hidden; }
-.panel h2 { color: var(--paper); }
-.panel a { color: var(--paper); }
-.vertical { position: absolute; top: 32px; right: 12px; writing-mode: vertical-rl; font-size: 12px; letter-spacing: 0.04em; color: var(--mute); }
+.panel { position: relative; background: var(--panel-bg); color: var(--panel-text); border: 1px solid var(--panel-edge); border-radius: var(--radius); padding: clamp(32px, 6vw, 80px) clamp(20px, 5vw, 72px); overflow: hidden; }
+.panel h2 { color: var(--panel-text); }
+.panel a { color: var(--panel-text); }
+.vertical { position: absolute; top: 32px; right: 12px; writing-mode: vertical-rl; font-size: 12px; letter-spacing: 0.04em; color: var(--panel-label); }
 .stats { display: grid; gap: 24px; margin-bottom: 48px; }
-.big { margin: 0; color: #5a5a5a; font-size: clamp(3.5rem, 13vw, 11rem); font-weight: 500; letter-spacing: -0.05em; line-height: 0.9; }
+.big { margin: 0; color: var(--panel-ghost); font-size: clamp(3.5rem, 13vw, 11rem); font-weight: 500; letter-spacing: -0.05em; line-height: 0.9; }
 .counters { display: flex; flex-wrap: wrap; gap: 24px 48px; margin: 0; }
-.counters dt { color: var(--mute); }
+.counters dt { color: var(--panel-label); }
 .counters dd { margin: 0; font-size: 2rem; font-weight: 500; letter-spacing: -0.03em; }
 .chart { list-style: none; padding: 0; margin: 0 0 48px; display: grid; gap: 10px; }
 .bar { display: grid; grid-template-columns: minmax(0, 1fr) 4.5rem; grid-template-areas: 'label value' 'track track'; gap: 4px 12px; align-items: center; }
 .barLabel { grid-area: label; font-size: 14px; }
 .barValue { grid-area: value; text-align: right; font-variant-numeric: tabular-nums; font-size: 14px; }
-.barTrack { grid-area: track; height: 10px; background: #1f1f1f; border-radius: 999px; overflow: hidden; }
+.barTrack { grid-area: track; height: 10px; background: var(--panel-track); border-radius: 999px; overflow: hidden; }
 .barFill { display: block; height: 100%; background: var(--accent); border-radius: 999px; }
-.note { max-width: 60ch; margin: 32px 0 16px; color: #d0d0d0; }
+.note { max-width: 60ch; margin: 32px 0 16px; color: var(--panel-note); }
 .links { display: flex; flex-wrap: wrap; gap: 12px 32px; margin: 0 0 32px; }
 .barcode { display: block; }
 @media (min-width: 997px) {

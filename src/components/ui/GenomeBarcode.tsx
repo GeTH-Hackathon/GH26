@@ -26,7 +26,7 @@ export default function GenomeBarcode({height = 120, onDark = false, className}:
       width="100%"
       height={height}
       className={className}>
-      {bars.map((b) => <rect key={b.key} x={b.x} y={0} width={b.w} height={100} fill={b.fill} />)}
+      {bars.map((b) => <rect key={b.key} x={b.x} y={0} width={b.w} height={100} style={{fill: b.fill}} />)}
     </svg>
   );
 }
