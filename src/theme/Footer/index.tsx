@@ -34,7 +34,7 @@ export default function Footer() {
             ))}
           </ul>
         </div>
-        <p className={styles.signoff}>see you in chiang mai.</p>
+        <p className={styles.signoff}>See you at Chiang Mai</p>
         <div className={styles.base}>
           <span className="label">{event.copyright}</span>
           <a className="label" href="#__docusaurus">/ back to top</a>

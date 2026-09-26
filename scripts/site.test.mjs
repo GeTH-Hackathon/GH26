@@ -41,7 +41,8 @@ test('apply: disabled button with opening message while no form url, else a Goog
 
 test('footer: sign-off and placeholder pages linked', () => {
   const html = read('index.html');
-  assert.match(html, /see you in chiang mai\./);
+  assert.match(html, />See you at Chiang Mai</);
+  assert.doesNotMatch(html, /see you in chiang mai/i);
   assert.match(html, new RegExp(`href="${BASE}terms/"`));
   assert.match(html, new RegExp(`href="${BASE}tre-guidelines/"`));
 });

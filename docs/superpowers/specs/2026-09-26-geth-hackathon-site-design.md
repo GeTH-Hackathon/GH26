@@ -134,7 +134,7 @@ A `null` value or `exact: false` renders with a small "TBA" tag.
    - The Apply button, plus links to Terms & Conditions and TRE guidelines, both marked "coming soon".
 8. **/ organizers.** Three labelled rows: Organizer (CMU Faculty of Medicine), Supported by (HSRI), Data partners (NSTDA, Genomics Thailand). Logos go in `static/img/logos/`. Until the files are supplied, a name set in type stands in for each logo.
 9. **/ links.** data.genomicsthailand.com ↗, BioHackathon 2026 ↗, Terms & Conditions, TRE guidelines.
-10. **Footer.** Black background. The giant accent sign-off "see you in chiang mai.", a contact line (TBA), the links, "© 2026 Faculty of Medicine, Chiang Mai University", and "/ back to top".
+10. **Footer.** Black background. The giant accent sign-off "See you at Chiang Mai", a contact line (TBA), the links, "© 2026 Faculty of Medicine, Chiang Mai University", and "/ back to top".
 
 **`/data`:** the headline stats, a short paragraph on each data type (VCF, PLINK, HLA, CYP, structural variants, demographics), and a sortable project table with columns ID, Type, Group, Name and WGSs. The table shows source values exactly as they are. An empty project name is displayed as "—".
 
