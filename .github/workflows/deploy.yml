@@ -19,8 +19,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      SITE_URL: https://${{ github.repository_owner }}.github.io
-      BASE_URL: /${{ github.event.repository.name }}/
+      # Custom domain set in Settings → Pages (DNS: Cloudflare CNAME gh27 → geth-hackathon.github.io).
+      SITE_URL: https://gh27.bat.or.th
+      BASE_URL: /
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

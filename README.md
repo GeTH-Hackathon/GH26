@@ -6,7 +6,7 @@ Static site for **GeTH Hackathon 2027** (Genomics Thailand Hackathon, 7–12 Feb
 
 ```bash
 npm install
-npm start            # dev server at http://localhost:3000/GH27/
+npm start            # dev server at http://localhost:3000/
 npm test             # data-pipeline unit tests
 npm run build        # regenerates src/data/wgs.json, then builds to build/
 npm run test:site    # checks the built HTML (run after build)
@@ -23,4 +23,4 @@ npm run typecheck
 
 ## Deploy
 
-Every push to `main` runs `.github/workflows/deploy.yml`, which tests, builds and publishes to `https://<owner>.github.io/<repo>/`. One-time setup: **Settings → Pages → Source: GitHub Actions**. Free GitHub Pages requires a public repo.
+Every push to `main` runs `.github/workflows/deploy.yml`, which tests, builds and publishes to **https://gh27.bat.or.th/** (GitHub Pages custom domain; https://geth-hackathon.github.io/GH27/ redirects there). DNS lives in Cloudflare: a `CNAME` record `gh27` → `geth-hackathon.github.io`. One-time setup: **Settings → Pages → Source: GitHub Actions** and **Custom domain: gh27.bat.or.th**. Free GitHub Pages requires a public repo.

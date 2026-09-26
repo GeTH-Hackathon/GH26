@@ -1,9 +1,10 @@
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
-// Overridden in CI so forks and renamed repos deploy correctly.
-const url = process.env.SITE_URL ?? 'https://geth-hackathon.github.io';
-const baseUrl = process.env.BASE_URL ?? '/GH27/';
+// Served from the custom domain gh27.bat.or.th (GitHub Pages; geth-hackathon.github.io/GH27/ redirects here).
+// Override with SITE_URL / BASE_URL to build for another host or sub-path.
+const url = process.env.SITE_URL ?? 'https://gh27.bat.or.th';
+const baseUrl = process.env.BASE_URL ?? '/';
 
 const config: Config = {
   title: 'GeTH Hackathon 2027',

@@ -4,7 +4,7 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync, readdirSync} from 'node:fs';
 
-const BASE = process.env.BASE_URL ?? '/GH27/';
+const BASE = process.env.BASE_URL ?? '/';
 // The Faster (swc) minifier drops attribute quotes and optional end tags, and React adds `<!-- -->`
 // between text nodes. Normalise so assertions can match `name="value"`, plain text and `&`.
 // Assertions must not rely on optional end tags such as </p>, </li> or </td>.
@@ -324,4 +324,12 @@ test('apply: real sub-headings, roles on one line, Apply button before the crite
   const button = apply.indexOf('Apply now ↗');
   assert.ok(button > -1 && button < apply.indexOf('Who should apply'), 'Apply button should come before the details');
   assert.match(apply, /Thai nationality[^<]*<span class="[^"]*">Required<\/span>/);
+});
+
+test('custom domain: built for https://gh27.bat.or.th at the root, no /GH27/ paths left', () => {
+  for (const page of PAGES) {
+    const html = read(page);
+    assert.doesNotMatch(html, /\/GH2[67]\//, `${page} still references a /GH2x/ base path`);
+  }
+  assert.match(read('index.html'), /<link[^>]*rel="canonical"[^>]*href="https:\/\/gh27\.bat\.or\.th\/"/);
 });
