@@ -1,11 +1,95 @@
+import {useState} from 'react';
 import Layout from '@theme/Layout';
+import Link from '@docusaurus/Link';
 import SlashHeading from '@site/src/components/ui/SlashHeading';
+import wgs from '@site/src/data/wgs.json';
+import {event} from '@site/src/data/event';
+import {fmt} from '@site/src/lib/format';
+import styles from './data.module.css';
+
+type Key = 'id' | 'type' | 'group' | 'name' | 'wgs';
+type Sort = {key: Key; dir: 1 | -1};
+
+const COLUMNS: {key: Key; label: string; numeric?: boolean}[] = [
+  {key: 'id', label: 'Project ID'},
+  {key: 'type', label: 'Type'},
+  {key: 'group', label: 'Group'},
+  {key: 'name', label: 'Project name'},
+  {key: 'wgs', label: 'WGSs', numeric: true},
+];
 
 export default function DataPage() {
+  const [sort, setSort] = useState<Sort>({key: 'wgs', dir: -1});
+  const rows = [...wgs.projects].sort((a, b) => {
+    const av = a[sort.key];
+    const bv = b[sort.key];
+    const c = typeof av === 'number' && typeof bv === 'number' ? av - bv : String(av).localeCompare(String(bv));
+    return c * sort.dir || a.id.localeCompare(b.id);
+  });
+  const toggle = (key: Key) =>
+    setSort((s) => (s.key === key ? {key, dir: s.dir === 1 ? -1 : 1} : {key, dir: key === 'wgs' ? -1 : 1}));
+
   return (
-    <Layout title="The data">
+    <Layout title="The data" description="The 50,000 Thai whole genomes available at GeTH Hackathon 2027, by project and disease group.">
       <main className="container-swiss section section--flush">
         <SlashHeading as="h1">the data</SlashHeading>
+        <dl className={styles.stats}>
+          <div><dt className="label">Whole genomes</dt><dd>{fmt(wgs.totals.wgs)}</dd></div>
+          <div><dt className="label">Projects</dt><dd>{fmt(wgs.totals.projects)}</dd></div>
+          <div><dt className="label">Disease groups</dt><dd>{fmt(wgs.totals.groups)}</dd></div>
+        </dl>
+        <p className={styles.note}>{event.dataNote}</p>
+
+        <h2 className="label">Data types</h2>
+        <dl className={styles.types}>
+          {event.dataTypes.map((t) => (
+            <div key={t.name} className={styles.type}>
+              <dt>{t.name}</dt>
+              <dd>{t.description}</dd>
+            </div>
+          ))}
+        </dl>
+
+        <h2 className="label">Projects contributing genomes</h2>
+        <p className={styles.caption}>Values as recorded by Genomics Thailand. Select a column heading to sort.</p>
+        <div className={styles.tableWrap}>
+          <table className={styles.table}>
+            <thead>
+              <tr>
+                {COLUMNS.map((c) => (
+                  <th
+                    key={c.key}
+                    scope="col"
+                    className={c.numeric ? styles.num : undefined}
+                    aria-sort={sort.key === c.key ? (sort.dir === 1 ? 'ascending' : 'descending') : 'none'}>
+                    <button type="button" className={styles.sortBtn} onClick={() => toggle(c.key)}>
+                      {c.label}
+                      {sort.key === c.key ? (sort.dir === 1 ? ' ↑' : ' ↓') : ''}
+                    </button>
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((p, i) => (
+                <tr key={`${p.id}-${i}`} data-row="project">
+                  <td>{p.id}</td>
+                  <td>{p.type}</td>
+                  <td>{p.group}</td>
+                  <td>{p.name || '—'}</td>
+                  <td className={styles.num}>{fmt(p.wgs)}</td>
+                </tr>
+              ))}
+            </tbody>
+            <tfoot>
+              <tr>
+                <th scope="row" colSpan={4}>Total</th>
+                <td className={styles.num}>{fmt(wgs.totals.wgs)}</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <p><Link to="/#apply">How to apply →</Link></p>
       </main>
     </Layout>
   );

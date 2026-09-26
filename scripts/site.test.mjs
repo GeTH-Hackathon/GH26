@@ -12,7 +12,7 @@ const requote = (tag) =>
   tag.replace(/(\s[\w:-]+)=("[^"]*"|'[^']*'|[^\s"'>]+)/g, (m, name, v) => (v[0] === '"' || v[0] === "'" ? m : `${name}="${v}"`));
 const normalise = (html) => html.replaceAll('<!-- -->', '').replace(/<[a-zA-Z][^>]*>/g, requote).replaceAll('&amp;', '&');
 const read = (path) => normalise(readFileSync(new URL(`../build/${path}`, import.meta.url), 'utf8'));
-const PAGES = ['index.html'];
+const PAGES = ['index.html', 'data/index.html', 'terms/index.html', 'tre-guidelines/index.html'];
 
 test('base url: every internal href/src is prefixed with the base url', () => {
   for (const page of PAGES) {
@@ -116,4 +116,30 @@ test('links: external links open safely in a new tab', () => {
   const section = html.slice(html.indexOf('id="links"'));
   assert.match(section, /href="https:\/\/data\.genomicsthailand\.com"[^>]*target="_blank"[^>]*rel="noopener noreferrer"/);
   assert.match(section, /href="https:\/\/2026\.biohackathon\.org"/);
+});
+
+test('/data: one row per project, awkward rows rendered faithfully', () => {
+  const html = read('data/index.html');
+  assert.equal((html.match(/data-row="project"/g) ?? []).length, 118);
+  assert.match(html, /<td>00-001(?:<\/td>)?<td>Service(?:<\/td>)?<td>Rare Diseases(?:<\/td>)?<td>—/);
+  assert.ok(html.includes('709/2561 (EC3)'));
+  assert.ok(html.includes('Non-Rare & Non-Cancer'));
+  assert.ok(html.includes('51,461'));
+  for (const t of ['VCF', 'PLINK', 'HLA', 'CYP', 'Structural variants', 'Demographics']) assert.ok(html.includes(t), t);
+});
+
+test('/data: default sort is WGS descending', () => {
+  const html = read('data/index.html');
+  const first = html.indexOf('<td>00-001');
+  const second = html.indexOf('<td>64-128');
+  assert.ok(first > -1 && second > first, 'largest project (13,017) should be listed before 64-128 (3,700)');
+  assert.match(html, /aria-sort="descending"/);
+});
+
+test('placeholder pages say "Will be announced soon" and link back to apply', () => {
+  for (const page of ['terms/index.html', 'tre-guidelines/index.html']) {
+    const html = read(page);
+    assert.match(html, /Will be announced soon\./, page);
+    assert.match(html, /href="[^"]*#apply"/, page);
+  }
 });
