@@ -22,6 +22,13 @@ const config: Config = {
   headTags: [
     {tagName: 'link', attributes: {rel: 'preconnect', href: 'https://fonts.googleapis.com'}},
     {tagName: 'link', attributes: {rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous'}},
+    {
+      // Hides the hero parts only while its intro is about to run; removed by the intro, or after 1.5s regardless.
+      tagName: 'script',
+      attributes: {},
+      innerHTML:
+        "(function(){try{if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){var d=document.documentElement;d.setAttribute('data-motion-intro','');setTimeout(function(){d.removeAttribute('data-motion-intro')},1500)}}catch(e){}})();",
+    },
   ],
   stylesheets: ['https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap'],
   presets: [

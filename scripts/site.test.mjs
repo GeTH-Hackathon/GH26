@@ -333,3 +333,20 @@ test('custom domain: built for https://gh27.bat.or.th at the root, no /GH27/ pat
   }
   assert.match(read('index.html'), /<link[^>]*rel="canonical"[^>]*href="https:\/\/gh27\.bat\.or\.th\/"/);
 });
+
+test('motion: head script gates the hero intro with a 1.5s fail-safe, never baked into the server HTML', () => {
+  const html = read('index.html');
+  assert.match(html, /<script>[^<]*data-motion-intro[^<]*setTimeout\([^<]*1500[^<]*<\/script>/);
+  assert.match(html, /prefers-reduced-motion: reduce/);
+  assert.doesNotMatch(html, /<html[^>]*data-motion-intro/);
+  assert.doesNotMatch(html, /style="[^"]*(?:opacity:\s*0|visibility:\s*hidden)/);
+});
+
+test('motion: GSAP is code-split out of the main bundle', () => {
+  const dir = new URL('../build/assets/js/', import.meta.url);
+  const files = readdirSync(dir);
+  const main = files.filter((f) => /^main\.[\w]+\.js$/.test(f));
+  assert.equal(main.length, 1);
+  assert.ok(!readFileSync(new URL(main[0], dir), 'utf8').includes('ScrollTrigger'), 'ScrollTrigger leaked into main.js');
+  assert.ok(files.some((f) => readFileSync(new URL(f, dir), 'utf8').includes('ScrollTrigger')), 'no chunk contains ScrollTrigger');
+});

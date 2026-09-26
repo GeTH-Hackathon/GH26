@@ -1,3 +1,5 @@
+import {useRef} from 'react';
+import {useMotionScene} from '@site/src/motion/useMotionScene';
 import Layout from '@theme/Layout';
 import Hero from '@site/src/components/sections/Hero';
 import Objectives from '@site/src/components/sections/Objectives';
@@ -10,9 +12,12 @@ import Organizers from '@site/src/components/sections/Organizers';
 import Links from '@site/src/components/sections/Links';
 
 export default function Home() {
+  // Temporary GSAP consumer (Task 3 replaces it with the hero scene).
+  const pageRef = useRef<HTMLElement>(null);
+  useMotionScene(pageRef, () => undefined);
   return (
     <Layout description="GeTH Hackathon 2027: six days in Chiang Mai analysing 50,000 Thai genomes inside a Trusted Research Environment.">
-      <main>
+      <main ref={pageRef}>
         <Hero />
         <Objectives />
         <Data />
