@@ -6,14 +6,17 @@
 /* "GeTH Hackathon" measures ~6.83em ("Hackathon" ~4.39em) in Inter Tight 600 at -0.06em tracking.
    Phones: two lines sized to "Hackathon"; desktop: one line. Divisors leave ~7% slack for scrollbars. */
 .wordmark { display: block; color: var(--accent); font-size: min(calc((100vw - 2 * var(--gutter)) / 4.7), calc((var(--maxw) - 2 * var(--gutter)) / 4.7)); white-space: nowrap; font-weight: 600; letter-spacing: -0.06em; line-height: 0.85; padding-bottom: 0.08em; }
-.line { display: block; }
+.line { display: block; overflow: clip; padding: 0.05em 0.04em; margin: -0.05em -0.04em; }
+.lineInner { display: inline-block; }
+:global(html[data-motion-intro]) .hero [data-intro] { opacity: 0; }
 .row { display: grid; gap: 24px; margin-top: clamp(24px, 4vw, 48px); }
 .tagline { margin: 0; max-width: 18ch; font-size: clamp(1.5rem, 3.4vw, 3rem); font-weight: 500; letter-spacing: -0.03em; line-height: 1.05; }
 .ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
 .barcode { display: block; margin-top: clamp(32px, 6vw, 72px); }
 @media (min-width: 997px) {
   .wordmark { font-size: min(calc((100vw - 2 * var(--gutter)) / 7.3), calc((var(--maxw) - 2 * var(--gutter)) / 7.3)); }
-  .line { display: inline; }
+  .line { display: inline-block; vertical-align: top; }
+  
   .row { grid-template-columns: 7fr 5fr; align-items: end; }
   .ctas { justify-content: flex-end; }
 }

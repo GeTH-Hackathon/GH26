@@ -350,3 +350,13 @@ test('motion: GSAP is code-split out of the main bundle', () => {
   assert.ok(!readFileSync(new URL(main[0], dir), 'utf8').includes('ScrollTrigger'), 'ScrollTrigger leaked into main.js');
   assert.ok(files.some((f) => readFileSync(new URL(f, dir), 'utf8').includes('ScrollTrigger')), 'no chunk contains ScrollTrigger');
 });
+
+test('hero: new tagline, deadline next to Apply, in-page status link', () => {
+  const html = read('index.html');
+  const hero = html.slice(html.indexOf('<header'), html.indexOf('id="objectives"'));
+  assert.match(hero, /50,000 Thai genomes\. Six days in Chiang Mai\. Real clinical questions\./);
+  assert.doesNotMatch(html, /Unlocking/);
+  assert.match(hero, /Apply by December 2026 · Results January 2027/);
+  assert.match(hero, /href="#apply"[^>]*>Apply ↓</);
+  for (const k of ['status', 'line', 'rest', 'barcode']) assert.match(hero, new RegExp(`data-intro="${k}"`));
+});
