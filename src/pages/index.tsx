@@ -1,10 +1,11 @@
 import Layout from '@theme/Layout';
+import Apply from '@site/src/components/sections/Apply';
 
 export default function Home() {
   return (
-    <Layout>
+    <Layout description="GeTH Hackathon 2027: six days in Chiang Mai analysing 50,000 Thai genomes inside a Trusted Research Environment.">
       <main>
-        <h1>geth.</h1>
+        <Apply />
       </main>
     </Layout>
   );

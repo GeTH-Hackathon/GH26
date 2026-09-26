@@ -1,0 +1,10 @@
+.footer { background: var(--ink); color: var(--paper); padding: 64px 0 24px; }
+.footer a { color: var(--paper); }
+.name { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.03em; margin: 0 0 8px; }
+.cols { display: grid; gap: 32px; }
+.links { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.signoff { color: var(--accent); font-size: clamp(3rem, 12vw, 13rem); font-weight: 600; letter-spacing: -0.055em; line-height: 0.85; margin: 72px 0 32px; overflow-wrap: anywhere; }
+.base { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; border-top: 1px solid #2a2a2a; padding-top: 16px; }
+@media (min-width: 997px) {
+  .cols { grid-template-columns: 2fr 1fr 1fr; }
+}

@@ -17,12 +17,18 @@ const config: Config = {
   projectName: 'GH26',
   onBrokenLinks: 'throw',
   i18n: {defaultLocale: 'en', locales: ['en']},
+  headTags: [
+    {tagName: 'link', attributes: {rel: 'preconnect', href: 'https://fonts.googleapis.com'}},
+    {tagName: 'link', attributes: {rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous'}},
+  ],
+  stylesheets: ['https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap'],
   presets: [
     [
       'classic',
       {
         docs: false,
         blog: false,
+        theme: {customCss: './src/css/custom.css'},
       } satisfies Preset.Options,
     ],
   ],

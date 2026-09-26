@@ -1,0 +1,68 @@
+/* GeTH Swiss design tokens. Colours: accent / ink / paper / mute / rule only. */
+:root {
+  --accent: #ff4a1c;
+  --ink: #0a0a0a;
+  --paper: #ffffff;
+  --mute: #9a9a9a;
+  --rule: #e6e6e6;
+  --radius: 24px;
+  --gutter: 16px;
+  --maxw: 1440px;
+  --font: 'Inter Tight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  --ifm-font-family-base: var(--font);
+  --ifm-heading-font-family: var(--font);
+  --ifm-font-size-base: 17px;
+  --ifm-line-height-base: 1.5;
+  --ifm-background-color: var(--paper);
+  --ifm-font-color-base: var(--ink);
+  --ifm-heading-color: var(--ink);
+  --ifm-link-color: var(--ink);
+  --ifm-link-hover-color: var(--ink);
+  --ifm-color-primary: #0a0a0a;
+  --ifm-color-primary-dark: #000000;
+  --ifm-color-primary-darker: #000000;
+  --ifm-color-primary-darkest: #000000;
+  --ifm-color-primary-light: #262626;
+  --ifm-color-primary-lighter: #333333;
+  --ifm-color-primary-lightest: #4d4d4d;
+  --ifm-navbar-background-color: var(--paper);
+  --ifm-navbar-shadow: none;
+  --ifm-navbar-link-color: var(--ink);
+  --ifm-navbar-link-hover-color: var(--ink);
+  --ifm-footer-background-color: var(--ink);
+}
+
+@media (min-width: 997px) {
+  :root { --gutter: 32px; }
+}
+
+body { background: var(--paper); color: var(--ink); }
+
+a { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { text-decoration-color: currentColor; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+.container-swiss { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
+.section { padding: clamp(64px, 10vw, 144px) 0; border-top: 1px solid var(--rule); scroll-margin-top: 60px; }
+.section--flush { border-top: 0; }
+
+.label { font-size: 11px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.4; }
+
+.slash-heading { font-size: clamp(2.5rem, 7vw, 5.5rem); font-weight: 500; letter-spacing: -0.05em; line-height: 0.95; margin: 0 0 clamp(32px, 5vw, 64px); text-transform: lowercase; }
+.slash-heading .slash { color: var(--mute); font-weight: 400; }
+
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; border: 0; border-radius: 999px; background: var(--accent); color: var(--ink); font: 600 15px/1.2 var(--font); text-decoration: none; cursor: pointer; }
+.btn:hover { background: var(--ink); color: var(--paper); text-decoration: none; }
+.btn[disabled] { background: var(--rule); color: var(--ink); cursor: not-allowed; }
+
+.tba { display: inline-block; margin-left: 8px; padding: 1px 6px; border: 1px solid var(--accent); border-radius: 4px; font-size: 10px; font-weight: 600; letter-spacing: 0.06em; line-height: 1.5; text-transform: uppercase; vertical-align: middle; }
+
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+.navbar { border-bottom: 1px solid var(--rule); }
+.navbar__title { font-size: 1.6rem; font-weight: 600; letter-spacing: -0.05em; color: var(--accent); }
+.navbar__link { font-size: 12px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; }
+.navbar__link--active { color: var(--ink); }
+.navbar-apply { background: var(--accent); border-radius: 999px; padding: 6px 16px; margin-left: 8px; }
+.navbar-apply:hover { background: var(--ink); color: var(--paper); }

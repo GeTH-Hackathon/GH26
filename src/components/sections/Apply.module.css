@@ -1,0 +1,11 @@
+.grid { display: grid; gap: 48px; }
+.lead { font-size: clamp(1.5rem, 3vw, 2.5rem); font-weight: 500; letter-spacing: -0.03em; line-height: 1.1; max-width: 22ch; }
+.list { list-style: none; padding: 0; margin: 8px 0 32px; border-top: 1px solid var(--rule); }
+.list li { padding: 10px 0; border-bottom: 1px solid var(--rule); }
+.cta { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+.small { font-size: 14px; color: #555; margin: 0; }
+.docs { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 8px; }
+@media (min-width: 997px) {
+  .grid { grid-template-columns: 7fr 5fr; }
+  .cta { position: sticky; top: 96px; align-self: start; }
+}
