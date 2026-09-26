@@ -63,6 +63,7 @@ test('objectives: event-level intro and five numbered objectives', () => {
   for (const n of ['01', '02', '03', '04', '05']) assert.match(section, new RegExp(`>${n}<`));
   assert.doesNotMatch(section, />06</);
   for (const s of [
+    'The Genomics Thailand (GeTH) Hackathon brings bioinformaticians',
     'questions that matter at the bedside and in the lab',
     'large language models',
     'analyse in place and share only aggregate results',
@@ -267,4 +268,13 @@ test('/data: dataset map renders every project, both link kinds, topic filters, 
   for (const s of ['Same project, later year', 'Shared topic', 'Shared topic across groups']) assert.ok(map.includes(s), `legend: ${s}`);
   assert.match(map, /118 projects in 7 disease groups/);
   for (const g of ['Rare Diseases', 'NCD', 'Cancer', 'Pharmacogenomics', 'Infectious Diseases', 'Popgen', 'Non-Rare & Non-Cancer']) assert.ok(map.includes(g), g);
+});
+
+test('eligibility: open to Thai nationals only, stated in Apply and reflected in objectives', () => {
+  const html = read('index.html');
+  const apply = html.slice(html.indexOf('id="apply"'), html.indexOf('id="organizers"'));
+  assert.match(apply, /Open to Thai nationals only/);
+  assert.match(apply, /Thai nationality/);
+  const objectives = html.slice(html.indexOf('id="objectives"'), html.indexOf('id="data"'));
+  assert.doesNotMatch(objectives, /regional researchers/);
 });

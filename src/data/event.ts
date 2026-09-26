@@ -17,6 +17,7 @@ export type EventInfo = {
   formUrl: string | null;
   applyOpensLabel: string;
   seatsLabel: string;
+  eligibility: string;
   contactEmail: string | null;
   copyright: string;
   objectivesIntro: string[];
@@ -54,10 +55,11 @@ export const event: EventInfo = {
   formUrl: 'https://forms.gle/f76Bmzxu144CktoC6',
   applyOpensLabel: 'Applications open November 2026',
   seatsLabel: 'About 50 seats',
+  eligibility: 'Open to Thai nationals only, because the hackathon works with sensitive national health data.',
   contactEmail: null,
   copyright: '© 2026 Faculty of Medicine, Chiang Mai University',
   objectivesIntro: [
-    'GeTH Hackathon brings bioinformaticians, clinicians and data scientists together around 50,000 whole genomes from the Genomics Thailand programme. We hack on questions that matter at the bedside and in the lab: why diseases present differently in Thai and Southeast Asian populations, which variants change how patients respond to drugs, and how families with rare diseases can reach a diagnosis sooner.',
+    'The Genomics Thailand (GeTH) Hackathon brings bioinformaticians, clinicians and data scientists together around 50,000 whole genomes from the Genomics Thailand programme. We hack on questions that matter at the bedside and in the lab: why diseases present differently in Thai and Southeast Asian populations, which variants change how patients respond to drugs, and how families with rare diseases can reach a diagnosis sooner.',
     'We also want to explore how reproducible workflows, standard ontologies and AI, including large language models, can turn variant calls into interpretable, clinically meaningful knowledge. All analysis happens inside a Trusted Research Environment: participants analyse in place and share only aggregate results. Through collaborative, hands-on hacking, we aim to incubate ideas and solutions that move genomic medicine in Thailand forward.',
   ],
   objectives: [
@@ -65,10 +67,11 @@ export const event: EventInfo = {
     'Characterise the genetic diversity of the Thai population and how it differs from global reference panels.',
     'Build reusable tools and reproducible workflows for population-scale analysis inside a Trusted Research Environment.',
     'Explore how AI and large language models can help interpret variants and link genomic findings to clinical knowledge.',
-    'Grow a lasting community of Thai and regional researchers, clinicians and data scientists working with national genomic data.',
+    'Grow a lasting community of Thai researchers, clinicians and data scientists working with national genomic data.',
   ],
   audience: ['Researchers', 'Bioinformaticians', 'Clinicians', 'Data scientists'],
   criteria: [
+    'Thai nationality (required)',
     'Technical skill in genomic or data analysis',
     'Experience with genomics data',
     'Affiliation with a non-profit organisation',
