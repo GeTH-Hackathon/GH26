@@ -2,6 +2,9 @@ import Layout from '@theme/Layout';
 import Hero from '@site/src/components/sections/Hero';
 import Objectives from '@site/src/components/sections/Objectives';
 import Data from '@site/src/components/sections/Data';
+import DatesVenue from '@site/src/components/sections/DatesVenue';
+import ImportantDates from '@site/src/components/sections/ImportantDates';
+import Schedule from '@site/src/components/sections/Schedule';
 import Apply from '@site/src/components/sections/Apply';
 
 export default function Home() {
@@ -11,6 +14,9 @@ export default function Home() {
         <Hero />
         <Objectives />
         <Data />
+        <DatesVenue />
+        <ImportantDates />
+        <Schedule />
         <Apply />
       </main>
     </Layout>

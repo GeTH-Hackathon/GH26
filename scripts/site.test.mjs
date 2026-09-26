@@ -70,3 +70,27 @@ test('data: en-US formatted totals, all seven groups and the data types', () => 
   for (const t of ['VCF', 'PLINK', 'HLA', 'CYP', 'STRUCTURAL VARIANTS', 'DEMOGRAPHICS']) assert.ok(html.includes(t), `missing ${t}`);
   assert.match(html, /href="https:\/\/data\.genomicsthailand\.com"/);
 });
+
+test('dates & venue: date range, city, hotel TBA and airport', () => {
+  const html = read('index.html');
+  assert.match(html, /id="dates"/);
+  assert.match(html, /7–12 February 2027/);
+  assert.match(html, /Chiang Mai, Thailand/);
+  assert.match(html, /Chiang Mai International Airport \(CNX\)/);
+});
+
+test('important dates: four milestones, inexact ones tagged TBA', () => {
+  const html = read('index.html');
+  const section = html.slice(html.indexOf('id="important-dates"'), html.indexOf('id="schedule"'));
+  for (const d of ['November 2026', 'December 2026', 'January 2027', '7–12 February 2027']) assert.ok(section.includes(d), d);
+  assert.equal((section.match(/class="tba"/g) ?? []).length, 3);
+});
+
+test('schedule: supplied times and every day present', () => {
+  const html = read('index.html');
+  const section = html.slice(html.indexOf('id="schedule"'));
+  for (const s of ['12:30', 'Registration opens', '13:00', 'Opening', 'Self-introduction of participants', 'TRE tutorial', 'Topic proposals', '07:00–09:00', '12:00', 'Wrap-up session', 'Depart from venue to CNX airport']) {
+    assert.ok(section.includes(s), `missing "${s}"`);
+  }
+  for (const d of ['Sun 7 Feb', 'Mon 8 Feb', 'Tue 9 Feb', 'Wed 10 Feb', 'Thu 11 Feb', 'Fri 12 Feb']) assert.ok(section.includes(d), d);
+});
