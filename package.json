@@ -12,7 +12,7 @@
     "serve": "docusaurus serve",
     "clear": "docusaurus clear",
     "typecheck": "tsc",
-    "test": "node --test scripts/build-data.test.mjs scripts/workflow.test.mjs scripts/filter.test.mjs scripts/paginate.test.mjs scripts/build-graph.test.mjs",
+    "test": "node --test scripts/build-data.test.mjs scripts/workflow.test.mjs scripts/filter.test.mjs scripts/paginate.test.mjs scripts/build-graph.test.mjs scripts/barcode.test.mjs",
     "test:site": "node --test scripts/site.test.mjs"
   },
   "dependencies": {
@@ -21,6 +21,7 @@
     "@docusaurus/preset-classic": "3.10.2",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
+    "gsap": "^3.15.0",
     "prism-react-renderer": "^2.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
