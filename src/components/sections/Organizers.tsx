@@ -1,4 +1,7 @@
 import {useAnchor} from '@site/src/lib/useAnchor';
+import {useRef} from 'react';
+import {useMotionScene} from '@site/src/motion/useMotionScene';
+import {reveal} from '@site/src/motion/scenes/reveal';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import SlashHeading from '@site/src/components/ui/SlashHeading';
 import {event, type Partner, type PartnerRole} from '@site/src/data/event';
@@ -24,15 +27,17 @@ function PartnerMark({partner}: {partner: Partner}) {
 }
 
 export default function Organizers() {
+  const ref = useRef<HTMLDivElement>(null);
+  useMotionScene(ref, reveal);
   return (
     <section id={useAnchor('organizers')} className="section">
-      <div className="container-swiss">
+      <div className="container-swiss" ref={ref}>
         <SlashHeading>Organizers</SlashHeading>
         {ROLES.map(({role, plural}) => {
           const partners = event.partners.filter((p) => p.role === role);
           if (partners.length === 0) return null;
           return (
-            <div key={role} className={styles.row}>
+            <div key={role} className={styles.row} data-reveal>
               <p className="label">{partners.length > 1 ? plural : role}</p>
               <ul className={styles.list}>
                 {partners.map((p) => <li key={p.name}><PartnerMark partner={p} /></li>)}

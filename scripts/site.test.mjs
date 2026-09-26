@@ -360,3 +360,12 @@ test('hero: new tagline, deadline next to Apply, in-page status link', () => {
   assert.match(hero, /href="#apply"[^>]*>Apply ↓</);
   for (const k of ['status', 'line', 'rest', 'barcode']) assert.match(hero, new RegExp(`data-intro="${k}"`));
 });
+
+test('reveal hooks on objectives, apply and organizers; Apply section shows the deadline too', () => {
+  const html = read('index.html');
+  const part = (a, b) => html.slice(html.indexOf(`id="${a}"`), b ? html.indexOf(`id="${b}"`) : undefined);
+  assert.ok((part('objectives', 'data').match(/data-reveal/g) ?? []).length >= 7, 'intro paragraphs + 5 objectives');
+  assert.ok((part('apply', 'organizers').match(/data-reveal/g) ?? []).length >= 3);
+  assert.ok((part('organizers').match(/data-reveal/g) ?? []).length >= 3);
+  assert.equal((html.match(/Apply by December 2026 · Results January 2027/g) ?? []).length, 2, 'hero and Apply');
+});
