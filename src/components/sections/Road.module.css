@@ -17,7 +17,7 @@
 .viewport[data-layout='horizontal'] .rail { max-width: none; width: max-content; margin: 0; padding: 12px var(--gutter) 0 max(var(--gutter), calc((100vw - var(--maxw)) / 2 + var(--gutter))); }
 .viewport[data-layout='horizontal'] .progress { display: block; position: absolute; top: 12px; left: 0; right: 0; height: 2px; background: var(--accent); transform-origin: left center; }
 .viewport[data-layout='horizontal'] .track { display: flex; gap: 32px; }
-.viewport[data-layout='horizontal'] .stop { width: min(30vw, 380px); margin: 0; padding: 24px 0 0; border-left: 0; border-top: 2px solid var(--rule); opacity: 0.45; transition: opacity 150ms ease; }
+.viewport[data-layout='horizontal'] .stop { width: min(30vw, 380px); margin: 0; padding: 24px 0 0; border-left: 0; border-top: 2px solid var(--rule); opacity: 0.6; transition: opacity 150ms ease; } /* 0.6 keeps dimmed agenda text above 4.5:1 */
 .viewport[data-layout='horizontal'] .stop[data-current] { opacity: 1; }
 .viewport[data-layout='horizontal'] .dot { left: 0; top: -7px; }
 @media (prefers-reduced-motion: reduce) {
