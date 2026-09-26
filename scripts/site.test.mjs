@@ -241,3 +241,19 @@ test('theme: no hard-coded greys left in component CSS (all colours come from to
   const offenders = modules.filter((rule) => /#(?:555|555555|5a5a5a|1f1f1f|d0d0d0|2a2a2a)\b/i.test(rule));
   assert.deepEqual(offenders, []);
 });
+
+test('/data: dataset map renders every project, both link kinds, topic filters, legend and a text summary', () => {
+  const html = read('data/index.html');
+  const map = html.slice(html.search(/<figure[^>]*aria-label="Dataset map"/));
+  assert.ok(map.length < html.length, 'missing dataset map figure');
+  assert.ok(html.indexOf('aria-label="Dataset map"') < html.indexOf('id="project-search"'), 'map sits above the project table');
+  // Two layouts (wide + tall), each with every project and every series link.
+  assert.equal((map.match(/data-node="/g) ?? []).length, 236);
+  assert.equal((map.match(/data-link="series"/g) ?? []).length, 54);
+  assert.ok((map.match(/data-link="topic"/g) ?? []).length > 0);
+  const chips = (map.match(/<button[^>]*>/g) ?? []).filter((b) => /data-topic=/.test(b) && /aria-pressed="(?:true|false)"/.test(b));
+  assert.equal(chips.length, 13);
+  for (const s of ['Same project, later year', 'Shared topic', 'Shared topic across groups']) assert.ok(map.includes(s), `legend: ${s}`);
+  assert.match(map, /118 projects in 7 disease groups/);
+  for (const g of ['Rare Diseases', 'NCD', 'Cancer', 'Pharmacogenomics', 'Infectious Diseases', 'Popgen', 'Non-Rare & Non-Cancer']) assert.ok(map.includes(g), g);
+});

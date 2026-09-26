@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "data": "node scripts/build-data.mjs",
+    "data": "node scripts/build-data.mjs && node scripts/build-graph.mjs",
     "prestart": "npm run data",
     "prebuild": "npm run data",
     "start": "docusaurus start",
@@ -12,7 +12,7 @@
     "serve": "docusaurus serve",
     "clear": "docusaurus clear",
     "typecheck": "tsc",
-    "test": "node --test scripts/build-data.test.mjs scripts/workflow.test.mjs scripts/filter.test.mjs scripts/paginate.test.mjs",
+    "test": "node --test scripts/build-data.test.mjs scripts/workflow.test.mjs scripts/filter.test.mjs scripts/paginate.test.mjs scripts/build-graph.test.mjs",
     "test:site": "node --test scripts/site.test.mjs"
   },
   "dependencies": {
@@ -30,6 +30,7 @@
     "@docusaurus/tsconfig": "3.10.2",
     "@docusaurus/types": "3.10.2",
     "@types/react": "^19.0.0",
+    "d3-force": "^3.0.0",
     "typescript": "~6.0.2"
   },
   "browserslist": {

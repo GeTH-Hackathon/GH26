@@ -1,0 +1,15 @@
+[
+  {"name": "tuberculosis", "pattern": "tubercul"},
+  {"name": "diabetes", "pattern": "diabet"},
+  {"name": "drug hypersensitivity", "pattern": "hypersensitiv|adverse drug"},
+  {"name": "lung cancer", "pattern": "lung cancer"},
+  {"name": "colorectal", "pattern": "colorectal"},
+  {"name": "dengue", "pattern": "dengue"},
+  {"name": "melioidosis", "pattern": "melioid"},
+  {"name": "obesity", "pattern": "obes"},
+  {"name": "leukemia", "pattern": "leuk"},
+  {"name": "cardiovascular", "pattern": "cardiovasc|heart"},
+  {"name": "cholangiocarcinoma", "pattern": "cholangio"},
+  {"name": "kidney", "pattern": "kidney|nephro"},
+  {"name": "COVID-19", "pattern": "covid|sars-cov"}
+]

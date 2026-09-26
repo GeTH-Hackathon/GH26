@@ -7,6 +7,7 @@ import {event} from '@site/src/data/event';
 import {fmt} from '@site/src/lib/format';
 import {filterProjects} from '@site/src/lib/filterProjects';
 import {paginate, pageNumbers} from '@site/src/lib/paginate';
+import DatasetMap from '@site/src/components/data/DatasetMap';
 import styles from './data.module.css';
 
 type Key = 'id' | 'type' | 'group' | 'name' | 'wgs';
@@ -70,6 +71,9 @@ export default function DataPage() {
               </div>
             ))}
           </dl>
+
+          <h2 className="label">Dataset map</h2>
+          <DatasetMap />
 
           <h2 className="label">Projects contributing genomes</h2>
           <p className={styles.caption}>Values as recorded by Genomics Thailand. Search, or select a column heading to sort.</p>
