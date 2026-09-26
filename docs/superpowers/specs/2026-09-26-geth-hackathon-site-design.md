@@ -1,7 +1,7 @@
 # GeTH Hackathon 2027 website: design spec
 
 - Date: 2026-09-26
-- Status: awaiting review
+- Status: approved 2026-09-26
 - Sources: `appendix/genomics_thailand_hackathon_brief.md`, `appendix/wgs_projects_and_volunteer_counts.txt`, the user's brainstorming answers, and a Swiss-style visual reference (the "silence." skate site).
 
 ## 1. Goal and audience
@@ -34,11 +34,11 @@ The event is modelled on DBCLS BioHackathon 2026 (https://2026.biohackathon.org)
 | Terms & Conditions | "Will be announced soon" |
 | TRE guideline instructions | "Will be announced soon" |
 | Links | https://data.genomicsthailand.com, https://2026.biohackathon.org (inspiration) |
-| Hosting | GitHub Pages at the default `https://<owner>.github.io/<repo>/` |
+| Hosting | GitHub Pages at the default `https://<owner>.github.io/<repo>/`; current remote `GeTH-Hackathon/GH26` → `https://geth-hackathon.github.io/GH26/` |
 
 ## 3. Architecture
 
-**Stack:** Docusaurus 3 (classic preset) with TypeScript and React 18 on Node 20+, using npm. The `docs` and `blog` plugins are disabled; only the pages plugin is used. Colour-mode switching is off and the site is light-only. `onBrokenLinks: 'throw'`.
+**Stack:** Docusaurus 3.10 (classic preset) with TypeScript 6 and React 19 (as in the official 3.10 TypeScript template), on Node 20+ locally and Node 22 in CI, using npm. `trailingSlash: true`. The `docs` and `blog` plugins are disabled; only the pages plugin is used. Colour-mode switching is off and the site is light-only. `onBrokenLinks: 'throw'`.
 
 ```
 docusaurus.config.ts        url/baseUrl from env (SITE_URL, BASE_URL), defaults for *.github.io
@@ -83,8 +83,8 @@ A `null` value or `exact: false` renders with a small "TBA" tag.
 
 ## 4. Visual system (Swiss, based on the reference)
 
-- **Colour:** `--accent #FF4A1C`, `--ink #0A0A0A`, `--paper #FFFFFF`, `--mute #9A9A9A`, `--rule #E6E6E6`. No other hues. The only extra colours are the disease-group tints in the charts and barcode: six steps from accent through ink and mute.
-- **Type:** Inter Tight (Google Fonts, weights 400/500/600), falling back to Helvetica Neue and Arial. Display size `clamp(4rem, 18vw, 16rem)` with letter-spacing −0.05em, set lowercase with a trailing full stop. H2 is about 4rem. Body text is 16–18px. Labels are 11px uppercase with letter-spacing +0.04em.
+- **Colour:** `--accent #FF4A1C`, `--ink #0A0A0A`, `--paper #FFFFFF`, `--mute #9A9A9A`, `--rule #E6E6E6`. No other hues. The only extra colours are the disease-group tints in the charts and barcode: seven tints (one per group) drawn from accent, ink and mute.
+- **Type:** Inter Tight (Google Fonts, weights 400/500/600), falling back to Helvetica Neue and Arial. Section headings use `clamp(2.5rem, 7vw, 5.5rem)`. The hero wordmark uses its own size, `clamp(5rem, 36vw, 34rem)`, so it spans the content width at every breakpoint. Display text uses letter-spacing −0.05em and is set lowercase with a trailing full stop. Body text is 16–18px. Labels are 11px uppercase with letter-spacing +0.04em.
 - **Motifs:**
   - a `/ ` prefix on every section heading;
   - a small uppercase status bar reading `FEB 7–12 2027 \ CHIANG MAI \ 50K GENOMES`;
@@ -158,7 +158,7 @@ Expected values for the current file are 51,461 WGSs, 118 projects and 7 groups.
 
 ## 7. Deployment
 
-`.github/workflows/deploy.yml` triggers on push to `main` and on `workflow_dispatch`. It runs `actions/checkout` → `setup-node@v4` (Node 20, npm cache) → `npm ci` → `npm run build` → `actions/upload-pages-artifact` (from `build/`) → `actions/deploy-pages`.
+`.github/workflows/deploy.yml` triggers on push to `main` and on `workflow_dispatch`. It runs `actions/checkout` → `setup-node@v4` (Node 22, npm cache) → `npm ci` → `npm run build` → `actions/upload-pages-artifact` (from `build/`) → `actions/deploy-pages`.
 
 It sets `BASE_URL=/${{ github.event.repository.name }}/` and `SITE_URL=https://${{ github.repository_owner }}.github.io`.
 
