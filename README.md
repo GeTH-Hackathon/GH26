@@ -1,4 +1,4 @@
-# GH26: GeTH Hackathon 2027 website
+# GH27: GeTH Hackathon 2027 website
 
 Static site for **GeTH Hackathon 2027** (Genomics Thailand Hackathon, 7–12 February 2027, Chiang Mai). It is built with [Docusaurus](https://docusaurus.io) and deployed to GitHub Pages.
 
@@ -6,7 +6,7 @@ Static site for **GeTH Hackathon 2027** (Genomics Thailand Hackathon, 7–12 Feb
 
 ```bash
 npm install
-npm start            # dev server at http://localhost:3000/GH26/
+npm start            # dev server at http://localhost:3000/GH27/
 npm test             # data-pipeline unit tests
 npm run build        # regenerates src/data/wgs.json, then builds to build/
 npm run test:site    # checks the built HTML (run after build)

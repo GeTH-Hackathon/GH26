@@ -34,7 +34,7 @@ The event is modelled on DBCLS BioHackathon 2026 (https://2026.biohackathon.org)
 | Terms & Conditions | "Will be announced soon" |
 | TRE guideline instructions | "Will be announced soon" |
 | Links | https://data.genomicsthailand.com, https://2026.biohackathon.org (inspiration) |
-| Hosting | GitHub Pages at the default `https://<owner>.github.io/<repo>/`; current remote `GeTH-Hackathon/GH26` → `https://geth-hackathon.github.io/GH26/` |
+| Hosting | GitHub Pages at the default `https://<owner>.github.io/<repo>/`; current remote `GeTH-Hackathon/GH27` → `https://geth-hackathon.github.io/GH27/` (renamed from GH26 on 2026-09-26) |
 
 ## 3. Architecture
 

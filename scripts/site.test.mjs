@@ -4,7 +4,7 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync, readdirSync} from 'node:fs';
 
-const BASE = process.env.BASE_URL ?? '/GH26/';
+const BASE = process.env.BASE_URL ?? '/GH27/';
 // The Faster (swc) minifier drops attribute quotes and optional end tags, and React adds `<!-- -->`
 // between text nodes. Normalise so assertions can match `name="value"`, plain text and `&`.
 // Assertions must not rely on optional end tags such as </p>, </li> or </td>.

@@ -12,7 +12,7 @@
  * file, add one by hand afterwards (see the note in the log output).
  */
 
-const TERMS_URL = 'https://geth-hackathon.github.io/GH26/terms/';
+const TERMS_URL = 'https://geth-hackathon.github.io/GH27/terms/';
 const WORDS_200 = 1500; // ~200 words
 const WORDS_100 = 750; // ~100 words
 

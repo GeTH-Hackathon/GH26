@@ -3,7 +3,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 // Overridden in CI so forks and renamed repos deploy correctly.
 const url = process.env.SITE_URL ?? 'https://geth-hackathon.github.io';
-const baseUrl = process.env.BASE_URL ?? '/GH26/';
+const baseUrl = process.env.BASE_URL ?? '/GH27/';
 
 const config: Config = {
   title: 'GeTH Hackathon 2027',
@@ -14,7 +14,7 @@ const config: Config = {
   baseUrl,
   trailingSlash: true,
   organizationName: 'GeTH-Hackathon',
-  projectName: 'GH26',
+  projectName: 'GH27',
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'throw',
   i18n: {defaultLocale: 'en', locales: ['en']},
