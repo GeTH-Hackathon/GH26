@@ -1,0 +1,872 @@
+{
+  "totals": {
+    "wgs": 51461,
+    "projects": 118,
+    "groups": 7
+  },
+  "byGroup": [
+    {
+      "group": "Rare Diseases",
+      "wgs": 18483,
+      "projects": 23
+    },
+    {
+      "group": "NCD",
+      "wgs": 14550,
+      "projects": 19
+    },
+    {
+      "group": "Cancer",
+      "wgs": 8971,
+      "projects": 40
+    },
+    {
+      "group": "Pharmacogenomics",
+      "wgs": 3875,
+      "projects": 21
+    },
+    {
+      "group": "Infectious Diseases",
+      "wgs": 3396,
+      "projects": 11
+    },
+    {
+      "group": "Popgen",
+      "wgs": 1169,
+      "projects": 3
+    },
+    {
+      "group": "Non-Rare & Non-Cancer",
+      "wgs": 1017,
+      "projects": 1
+    }
+  ],
+  "projects": [
+    {
+      "id": "63-078",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Risk factors associated with malignant transformation in astrocytoma brain tumors",
+      "wgs": 10
+    },
+    {
+      "id": "63-102",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "MicroRNA expression in cholangiocarcinoma patients",
+      "wgs": 56
+    },
+    {
+      "id": "63-104",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Prediction of chemotherapy treatment outcomes using transcriptomic and proteomic analysis in lung cancer patients",
+      "wgs": 98
+    },
+    {
+      "id": "63-105",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Results of molecular subtype classification in muscle-invasive bladder cancer by grouping gene expression levels for predicting survival and treatment response",
+      "wgs": 137
+    },
+    {
+      "id": "63-107",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "A study of gene mutation patterns and classification of subgroups of triple-negative breast cancer patients in southern Thailand for precision treatment planning",
+      "wgs": 20
+    },
+    {
+      "id": "63-114",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Exome study of sudden unexplained death syndrome (SUDS) victims in a young Thai population",
+      "wgs": 1
+    },
+    {
+      "id": "63-115",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Thai liver and cholangiocarcinoma organoid bank and deep genetic database for biomarker discovery and patient-specific treatment development",
+      "wgs": 18
+    },
+    {
+      "id": "63-120",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Pilot research project for Thai genomics: A study of genetic code data in Thai cancer patients",
+      "wgs": 457
+    },
+    {
+      "id": "63-136",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "An integrative multi-omics analysis of ovarian cancer in Thai patients",
+      "wgs": 63
+    },
+    {
+      "id": "64-075",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Pharmacogenetics and pharmacokinetics of mycophenolic acid and metabolites",
+      "wgs": 9
+    },
+    {
+      "id": "64-094",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Development of an assay kit for BRCA1 gene mutations to detect BRCA1 mutations in colorectal cancer and prostate cancer patients in southern Thailand using next-generation sequencing technology and mutant BRCA1 gene expression",
+      "wgs": 10
+    },
+    {
+      "id": "64-095",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Development of an assay kit for WOX gene mutations to detect WOX gene mutations in southern Thai patients with esophageal squamous cell carcinoma using next-generation sequencing technology and mutant WOX gene expression",
+      "wgs": 34
+    },
+    {
+      "id": "64-096",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Relationship between vaginal microbiome and HPV resistance as a guideline for cervical cancer prevention and treatment",
+      "wgs": 59
+    },
+    {
+      "id": "64-106",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Research plan to develop comprehensive biomolecular indicators for targeted EGFR inhibitors to enhance treatment efficacy in Thai lung cancer patients",
+      "wgs": 203
+    },
+    {
+      "id": "64-114",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Detection of gene abnormalities in patients with hereditary colorectal cancer and synchronous cancers using whole-genome DNA sequencing analysis techniques",
+      "wgs": 290
+    },
+    {
+      "id": "64-116",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "A study of genetics and DNA methylation levels in relation to the presence of anal cancer lesions",
+      "wgs": 81
+    },
+    {
+      "id": "64-130",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Multi-omics study in rare cancers and pediatric cancers for precision medicine",
+      "wgs": 536
+    },
+    {
+      "id": "64-139",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Integrative and multi-dimensional genomic study of glioma brain tumors",
+      "wgs": 3
+    },
+    {
+      "id": "64-143",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Integrative analysis system and database for precision medicine in cancer",
+      "wgs": 1
+    },
+    {
+      "id": "64-144",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Development of clinical service for personalized cancer treatment",
+      "wgs": 10
+    },
+    {
+      "id": "64-169",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Project suite for developing an integrated clinical genomic assay kit for Thai cancers",
+      "wgs": 2360
+    },
+    {
+      "id": "64-192",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Whole-genome sequencing and comprehensive biological composition (omics) studies in tissue and blood leading to the development of innovative assay kits for screening, diagnosis, personalized treatment, and treatment monitoring in lung cancer patients without specific driver mutations for targeted therapy",
+      "wgs": 169
+    },
+    {
+      "id": "64-223",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Pilot study of exome and transcriptome data in colorectal cancer in Thai patients using Next-generation sequencing (NGS)",
+      "wgs": 55
+    },
+    {
+      "id": "65-035",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Pharmacogenetics and pharmacokinetics of mycophenolic acid and metabolites (Phase 2)",
+      "wgs": 9
+    },
+    {
+      "id": "65-042",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Development of personalized cancer diagnosis using omics technology combined with drug response prediction in patient-derived cancer cell models (Year 2)",
+      "wgs": 16
+    },
+    {
+      "id": "65-064",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Detection of gene abnormalities in patients with hereditary colorectal cancer and synchronous cancers using whole-genome DNA sequencing analysis techniques (Year 2)",
+      "wgs": 267
+    },
+    {
+      "id": "65-093",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Multi-omics study in rare cancers and pediatric cancers for precision medicine (Year 2)",
+      "wgs": 33
+    },
+    {
+      "id": "65-110",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Development of a digital platform for utilizing pharmacogenetic data for rational drug use in Thai healthcare (PharmCard)",
+      "wgs": 1
+    },
+    {
+      "id": "65-116",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Development of an integrated clinical genomic assay kit for Thai cancers (Year 2)",
+      "wgs": 413
+    },
+    {
+      "id": "66-109",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "MicroRNA expression in cholangiocarcinoma patients (Year 2)",
+      "wgs": 95
+    },
+    {
+      "id": "66-126",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "(Project suite) Whole-genome sequencing and omics studies in tissue and blood leading to the development of innovative assay kits for screening, diagnosis, personalized treatment, and monitoring in lung cancer patients without specific driver mutations for targeted therapy (Year 3)",
+      "wgs": 2
+    },
+    {
+      "id": "66-128",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "(Project suite) Whole-genome sequencing and omics studies in tissue and blood leading to the development of innovative assay kits for screening, diagnosis, personalized treatment, and monitoring in lung cancer patients without specific driver mutations for targeted therapy (Year 3)",
+      "wgs": 1
+    },
+    {
+      "id": "66-129",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "(Project suite) Development of an integrated clinical genomic assay kit for Thai cancers (Year 3)",
+      "wgs": 586
+    },
+    {
+      "id": "66-155",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Detection of gene abnormalities in patients with hereditary colorectal cancer and synchronous cancers using whole-genome DNA sequencing analysis techniques (Year 3)",
+      "wgs": 117
+    },
+    {
+      "id": "66-161",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Diagnostic value of next-generation sequencing mutation analysis for thyroid nodules at risk of malignancy",
+      "wgs": 41
+    },
+    {
+      "id": "67-100",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Genetic factors associated with the development of cervical cancer in Thai women infected with HPV",
+      "wgs": 1
+    },
+    {
+      "id": "67-137",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Multi-omics study in rare cancers and pediatric cancers for precision medicine (Year 3)",
+      "wgs": 84
+    },
+    {
+      "id": "67-156",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Cost-utility analysis of Lynch syndrome screening in endometrial cancer patients using genetic testing and immunohistochemical special staining",
+      "wgs": 1
+    },
+    {
+      "id": "68-066",
+      "type": "Research",
+      "group": "Cancer",
+      "name": "Cost-utility analysis of Lynch syndrome screening in endometrial cancer patients using genetic testing and immunohistochemical special staining",
+      "wgs": 1
+    },
+    {
+      "id": "64-113",
+      "type": "Research",
+      "group": "Infectious Diseases",
+      "name": "A study of patient genetic markers associated with melioidosis and genetic diversity characteristics of Burkholderia pseudomallei isolated from patients, animals, and the environment in southern Thailand",
+      "wgs": 15
+    },
+    {
+      "id": "64-148",
+      "type": "Research",
+      "group": "Infectious Diseases",
+      "name": "Genomics and transcriptomics research guidelines for analyzing host-HIV interactions and improving treatment for HIV-infected patients in the northern region",
+      "wgs": 16
+    },
+    {
+      "id": "64-152",
+      "type": "Research",
+      "group": "Infectious Diseases",
+      "name": "Utilizing multi-omics to discover biomarkers for severe dengue fever",
+      "wgs": 106
+    },
+    {
+      "id": "64-179",
+      "type": "Research",
+      "group": "Infectious Diseases",
+      "name": "A study of genetic characteristics of tuberculosis patients and host-pathogen interactions",
+      "wgs": 532
+    },
+    {
+      "id": "64-198",
+      "type": "Research",
+      "group": "Infectious Diseases",
+      "name": "Project on the effects of genetics and immunity on SARS-CoV-2 infection following COVID-19 vaccination",
+      "wgs": 1747
+    },
+    {
+      "id": "64-224",
+      "type": "Research",
+      "group": "Infectious Diseases",
+      "name": "Comprehensive genomic analysis of patients and dengue virus from blood samples in a multi-center cohort study of pediatric dengue-infected patients",
+      "wgs": 170
+    },
+    {
+      "id": "65-121",
+      "type": "Research",
+      "group": "Infectious Diseases",
+      "name": "Integrative host-pathogen interaction study in tuberculosis and tuberculous meningitis patients: Bacterial genomics versus host genetics and immune response (Year 2)",
+      "wgs": 685
+    },
+    {
+      "id": "66-145",
+      "type": "Research",
+      "group": "Infectious Diseases",
+      "name": "Discovery of genomic nucleotide sequences and biomarkers in Thais indicating different tuberculosis infection statuses",
+      "wgs": 50
+    },
+    {
+      "id": "66-149",
+      "type": "Research",
+      "group": "Infectious Diseases",
+      "name": "Genome-wide association study of pathogens and patients with melioidosis in southern Thailand to discover genes related to disease severity",
+      "wgs": 13
+    },
+    {
+      "id": "67-089",
+      "type": "Research",
+      "group": "Infectious Diseases",
+      "name": "Discovery of genomic nucleotide sequences and biomarkers in Thais indicating different tuberculosis infection statuses (Year 2)",
+      "wgs": 23
+    },
+    {
+      "id": "67-102",
+      "type": "Research",
+      "group": "Infectious Diseases",
+      "name": "Integrative host-pathogen interaction study in tuberculosis and tuberculous meningitis patients: Bacterial genomics versus host genetics and immune response (Year 3)",
+      "wgs": 39
+    },
+    {
+      "id": "63-076",
+      "type": "Research",
+      "group": "NCD",
+      "name": "Genetic diversity specific to Thai epilepsy patients",
+      "wgs": 4
+    },
+    {
+      "id": "63-077",
+      "type": "Research",
+      "group": "NCD",
+      "name": "Whole-base sequencing (whole-genome sequencing) in severe Thai obesity volunteer patients to develop a genetic risk score for assessing clinical severity and personalized treatment response",
+      "wgs": 1
+    },
+    {
+      "id": "64-084",
+      "type": "Research",
+      "group": "NCD",
+      "name": "Relationship between polymorphisms and mutations associated with type 2 diabetes",
+      "wgs": 821
+    },
+    {
+      "id": "64-093",
+      "type": "Research",
+      "group": "NCD",
+      "name": "Advanced study of clinical presentation and genetic characteristics in Thai patients with familial hypercholesterolemia for clinical application",
+      "wgs": 28
+    },
+    {
+      "id": "64-098",
+      "type": "Research",
+      "group": "NCD",
+      "name": "Clinical study to evaluate the utility of a genetic risk score for obesity in Thai volunteers",
+      "wgs": 331
+    },
+    {
+      "id": "64-128",
+      "type": "Research",
+      "group": "NCD",
+      "name": "Study of genetic factors in patients at high risk for cardiovascular complications compared with controls",
+      "wgs": 3700
+    },
+    {
+      "id": "65-047",
+      "type": "Research",
+      "group": "NCD",
+      "name": "Study of genetic factors in patients at high risk for cardiovascular complications compared with controls (Year 2)",
+      "wgs": 44
+    },
+    {
+      "id": "65-100",
+      "type": "Research",
+      "group": "NCD",
+      "name": "Advanced study of clinical presentation and genetic characteristics in Thai patients with familial hypercholesterolemia for clinical application (Year 2)",
+      "wgs": 84
+    },
+    {
+      "id": "65-111",
+      "type": "Research",
+      "group": "NCD",
+      "name": "Genetic diversity associated with non-alcoholic fatty liver disease (NAFLD) in type 2 diabetes patients (Year 2)",
+      "wgs": 820
+    },
+    {
+      "id": "65-115",
+      "type": "Research",
+      "group": "NCD",
+      "name": "Genetic characteristics associated with the development of type 2 diabetes in highland Thai populations, Thailand",
+      "wgs": 2954
+    },
+    {
+      "id": "65-119",
+      "type": "Research",
+      "group": "NCD",
+      "name": "Study of genetic abnormalities in chronic kidney disease patients in Khon Kaen province to develop diagnostic and prognostic molecular biomarkers",
+      "wgs": 1045
+    },
+    {
+      "id": "65-126",
+      "type": "Research",
+      "group": "NCD",
+      "name": "Longitudinal and follow-up study of chronic non-communicable diseases and risk factors among urban working-age populations in Bangkok Noi (Siriraj One Health Project)",
+      "wgs": 1566
+    },
+    {
+      "id": "66-094",
+      "type": "Research",
+      "group": "NCD",
+      "name": "Genetic factors in women with gestational diabetes mellitus and their relationship with clinical symptoms as indicators for precision medicine",
+      "wgs": 530
+    },
+    {
+      "id": "66-098",
+      "type": "Research",
+      "group": "NCD",
+      "name": "Clinical study to evaluate the utility of a genetic risk score for obesity in Thai volunteers (Year 2)",
+      "wgs": 70
+    },
+    {
+      "id": "66-136",
+      "type": "Research",
+      "group": "NCD",
+      "name": "Whole-genome human sequencing and integrated hypertension prevention program for rural elderly in the northeastern region",
+      "wgs": 1021
+    },
+    {
+      "id": "66-138",
+      "type": "Research",
+      "group": "NCD",
+      "name": "Whole-genome sequencing in gestational diabetes mellitus patients to develop a genetic risk score for assessing clinical risk and personalized treatment response",
+      "wgs": 841
+    },
+    {
+      "id": "66-139",
+      "type": "Research",
+      "group": "NCD",
+      "name": "Study of genetic factors in patients at high risk for cardiovascular complications compared with controls (Year 3)",
+      "wgs": 1
+    },
+    {
+      "id": "66-154",
+      "type": "Research",
+      "group": "NCD",
+      "name": "Transcriptomic research on type 2 diabetes and related complications (Continuously funded Year 3 project from the original title: Relationship between polymorphisms and mutations associated with type 2 diabetes) (Year 3)",
+      "wgs": 393
+    },
+    {
+      "id": "67-105",
+      "type": "Research",
+      "group": "NCD",
+      "name": "Genetic diversity associated with non-alcoholic fatty liver disease (NAFLD) in obese vs. non-obese type 2 diabetes patients (Year 4)",
+      "wgs": 296
+    },
+    {
+      "id": "64-080",
+      "type": "Research",
+      "group": "Pharmacogenomics",
+      "name": "Pharmacogenetics of severe cutaneous adverse drug reactions caused by major causative drugs in Thailand",
+      "wgs": 24
+    },
+    {
+      "id": "64-082",
+      "type": "Research",
+      "group": "Pharmacogenomics",
+      "name": "Pharmacogenetics of leukemia treatment drugs in the Thai population",
+      "wgs": 324
+    },
+    {
+      "id": "64-099",
+      "type": "Research",
+      "group": "Pharmacogenomics",
+      "name": "Pharmacogenetics of 5-fluorouracil and its clinical impact in Thai colorectal cancer patients",
+      "wgs": 31
+    },
+    {
+      "id": "64-100",
+      "type": "Research",
+      "group": "Pharmacogenomics",
+      "name": "Pharmacogenetics of thiopurine drugs in pediatric acute lymphoblastic leukemia patients",
+      "wgs": 78
+    },
+    {
+      "id": "64-110",
+      "type": "Research",
+      "group": "Pharmacogenomics",
+      "name": "Study of pharmacogenetics of severe drug hypersensitivity",
+      "wgs": 168
+    },
+    {
+      "id": "64-111",
+      "type": "Research",
+      "group": "Pharmacogenomics",
+      "name": "Study of pharmacogenetics of drug-induced liver injury",
+      "wgs": 1108
+    },
+    {
+      "id": "64-115",
+      "type": "Research",
+      "group": "Pharmacogenomics",
+      "name": "Pharmacogenetics of clozapine regarding efficacy and adverse drug reactions in schizophrenia patients",
+      "wgs": 37
+    },
+    {
+      "id": "64-127",
+      "type": "Research",
+      "group": "Pharmacogenomics",
+      "name": "Pharmacogenetics and T-cell identity analysis of severe drug hypersensitivity in Thai patients across multi-institutions under the Thai SCARs network",
+      "wgs": 42
+    },
+    {
+      "id": "64-129",
+      "type": "Research",
+      "group": "Pharmacogenomics",
+      "name": "Study of pharmacogenetics and T-cell identity analysis of severe drug hypersensitivity in children, and a multi-center descriptive study of drug hypersensitivity in children",
+      "wgs": 46
+    },
+    {
+      "id": "64-137",
+      "type": "Research",
+      "group": "Pharmacogenomics",
+      "name": "Pharmacogenetics and pharmacoeconomics for predicting deferasirox plasma levels and clinical outcomes in Thai hematological patients with iron overload",
+      "wgs": 104
+    },
+    {
+      "id": "64-142",
+      "type": "Research",
+      "group": "Pharmacogenomics",
+      "name": "Pharmacogenetics in Thai kidney transplant recipients",
+      "wgs": 1272
+    },
+    {
+      "id": "65-038",
+      "type": "Research",
+      "group": "Pharmacogenomics",
+      "name": "Pharmacogenetics of severe cutaneous adverse drug reactions caused by major causative drugs in Thailand (Year 2)",
+      "wgs": 73
+    },
+    {
+      "id": "65-048",
+      "type": "Research",
+      "group": "Pharmacogenomics",
+      "name": "Genetic markers for predicting resistance to Tyrosine kinase inhibitors in Thai chronic myeloid leukemia patients",
+      "wgs": 66
+    },
+    {
+      "id": "65-082",
+      "type": "Research",
+      "group": "Pharmacogenomics",
+      "name": "Pharmacogenetics of thiopurine drugs in pediatric acute lymphoblastic leukemia patients (Year 2)",
+      "wgs": 13
+    },
+    {
+      "id": "65-084",
+      "type": "Research",
+      "group": "Pharmacogenomics",
+      "name": "Pharmacogenetics of 5-fluorouracil and its clinical impact in Thai colorectal cancer patients (Year 2)",
+      "wgs": 116
+    },
+    {
+      "id": "66-064",
+      "type": "Research",
+      "group": "Pharmacogenomics",
+      "name": "Pharmacogenetics in Thai kidney transplant recipients (Year 2)",
+      "wgs": 37
+    },
+    {
+      "id": "66-116",
+      "type": "Research",
+      "group": "Pharmacogenomics",
+      "name": "Pharmacogenetics of tamoxifen: Relationship between CYP2D6 genetic polymorphisms and tamoxifen biotransformation in Thai cancer patients",
+      "wgs": 42
+    },
+    {
+      "id": "66-156",
+      "type": "Research",
+      "group": "Pharmacogenomics",
+      "name": "Pharmacokinetics and pharmacogenetics of immunosuppressive drugs in heart transplant surgery patients",
+      "wgs": 50
+    },
+    {
+      "id": "66-160",
+      "type": "Research",
+      "group": "Pharmacogenomics",
+      "name": "Relationship between Human Leukocyte Antigen (HLA) types and statin-induced immune-mediated necrotizing myopathy",
+      "wgs": 17
+    },
+    {
+      "id": "67-088",
+      "type": "Research",
+      "group": "Pharmacogenomics",
+      "name": "Study of pharmacogenetics of severe drug hypersensitivity Year 2",
+      "wgs": 6
+    },
+    {
+      "id": "N35A640274",
+      "type": "Research",
+      "group": "Pharmacogenomics",
+      "name": "Genetic risk factors for side effects or adverse events following COVID-19 vaccination in Thailand",
+      "wgs": 221
+    },
+    {
+      "id": "66-151",
+      "type": "Research",
+      "group": "Popgen",
+      "name": "Establishment of an ethnic DNA database for population genetics and medical reference",
+      "wgs": 848
+    },
+    {
+      "id": "67-117",
+      "type": "Research",
+      "group": "Popgen",
+      "name": "Establishment of an ethnic DNA database for population genetics and medical reference (Year 2)",
+      "wgs": 183
+    },
+    {
+      "id": "C10F650132",
+      "type": "Research",
+      "group": "Popgen",
+      "name": "Project on developing cooperation and capacity in single-cell omics technology in Thailand from regional to international standards (Human Cell Atlas) (PMU-C65)",
+      "wgs": 138
+    },
+    {
+      "id": "63-080",
+      "type": "Research",
+      "group": "Rare Diseases",
+      "name": "Creation of a lower southern regional population genome database in Health Region 12",
+      "wgs": 93
+    },
+    {
+      "id": "63-096",
+      "type": "Research",
+      "group": "Rare Diseases",
+      "name": "Development of testing via whole-transcriptome sequencing analysis in Thai infants with cholestatic jaundice",
+      "wgs": 127
+    },
+    {
+      "id": "63-113",
+      "type": "Research",
+      "group": "Rare Diseases",
+      "name": "Establishment and development of genetic sequencing systems for patients with genetic disorders, rare diseases, and disabilities",
+      "wgs": 100
+    },
+    {
+      "id": "64-123",
+      "type": "Research",
+      "group": "Rare Diseases",
+      "name": "Molecular etiology and pathogenetic mechanisms of gingival overgrowth",
+      "wgs": 83
+    },
+    {
+      "id": "64-124",
+      "type": "Research",
+      "group": "Rare Diseases",
+      "name": "Study of saliva bacteria and proteome specific to periodontal disease in patients with rare primary immunodeficiency genetic disorders",
+      "wgs": 109
+    },
+    {
+      "id": "64-125",
+      "type": "Research",
+      "group": "Rare Diseases",
+      "name": "Creation and development of a genome editing platform for targeted treatment in severe genetic disorders, rare diseases, undiagnosed diseases, disabilities, and genetic conditions: Development of diagnostic systems and research management",
+      "wgs": 2
+    },
+    {
+      "id": "64-132",
+      "type": "Research",
+      "group": "Rare Diseases",
+      "name": "Study of the relationship between mutations and clinical presentation in neurofibromatosis patients",
+      "wgs": 999
+    },
+    {
+      "id": "64-140",
+      "type": "Research",
+      "group": "Rare Diseases",
+      "name": "Study of saliva bacteria and proteome specific to periodontal disease in patients with rare primary immunodeficiency genetic disorders (Year 2)",
+      "wgs": 133
+    },
+    {
+      "id": "65-039",
+      "type": "Research",
+      "group": "Rare Diseases",
+      "name": "Rare diseases, undiagnosed diseases, disabilities, and genetic conditions: Development of diagnostic systems and research management (Year 2)",
+      "wgs": 240
+    },
+    {
+      "id": "65-040",
+      "type": "Research",
+      "group": "Rare Diseases",
+      "name": "Study of the relationship between mutations and clinical presentation in neurofibromatosis patients (Year 2)",
+      "wgs": 1155
+    },
+    {
+      "id": "65-041",
+      "type": "Research",
+      "group": "Rare Diseases",
+      "name": "Development of biomarker assays for lysosomal storage diseases (LSDs) using tandem mass spectrometry",
+      "wgs": 4
+    },
+    {
+      "id": "66-081",
+      "type": "Research",
+      "group": "Rare Diseases",
+      "name": "Benefits of molecular genetic studies and family screening for disease diagnosis, family screening, discovering new genes, and/or mechanisms of monogenic or monogenic-like inherited heart diseases in the Thai population",
+      "wgs": 57
+    },
+    {
+      "id": "66-082",
+      "type": "Research",
+      "group": "Rare Diseases",
+      "name": "Study of saliva bacteria and proteome specific to periodontal disease in patients with rare primary immunodeficiency genetic disorders (Year 3)",
+      "wgs": 199
+    },
+    {
+      "id": "66-101",
+      "type": "Research",
+      "group": "Rare Diseases",
+      "name": "Pathogenic gene discovery by whole-genome sequencing to diagnose genetic amyotrophic lateral sclerosis in Thailand",
+      "wgs": 175
+    },
+    {
+      "id": "66-117",
+      "type": "Research",
+      "group": "Rare Diseases",
+      "name": "Rare diseases, undiagnosed diseases, disabilities, and genetic conditions: Development of diagnostic systems and research management (Year 3)",
+      "wgs": 192
+    },
+    {
+      "id": "66-122",
+      "type": "Research",
+      "group": "Rare Diseases",
+      "name": "Study of gene mutations using exome sequencing in Thai pediatric steroid-resistant nephrotic syndrome patients",
+      "wgs": 909
+    },
+    {
+      "id": "66-146",
+      "type": "Research",
+      "group": "Rare Diseases",
+      "name": "Genetic study of high refractive error (extreme myopia) in Thailand",
+      "wgs": 49
+    },
+    {
+      "id": "66-157",
+      "type": "Research",
+      "group": "Rare Diseases",
+      "name": "Precision medicine in infants with abnormal newborn screening results",
+      "wgs": 216
+    },
+    {
+      "id": "66-158",
+      "type": "Research",
+      "group": "Rare Diseases",
+      "name": "Study of gene mutations using exome sequencing in Thai pediatric steroid-resistant nephrotic syndrome patients Year 2",
+      "wgs": 157
+    },
+    {
+      "id": "67-087",
+      "type": "Research",
+      "group": "Rare Diseases",
+      "name": "Pathogenic gene discovery by whole-genome sequencing to diagnose genetic amyotrophic lateral sclerosis in Thailand (Year 2)",
+      "wgs": 7
+    },
+    {
+      "id": "67-104",
+      "type": "Research",
+      "group": "Rare Diseases",
+      "name": "The genetic study in patients with central nervous system demyelinating diseases in Siriraj Hospital",
+      "wgs": 147
+    },
+    {
+      "id": "709/2561 (EC3)",
+      "type": "Research",
+      "group": "Rare Diseases",
+      "name": "To support cancer patient services",
+      "wgs": 313
+    },
+    {
+      "id": "00-002",
+      "type": "Service",
+      "group": "Cancer",
+      "name": "To support services",
+      "wgs": 2623
+    },
+    {
+      "id": "00-000",
+      "type": "Service",
+      "group": "Non-Rare & Non-Cancer",
+      "name": "To support rare disease patient services",
+      "wgs": 1017
+    },
+    {
+      "id": "00-001",
+      "type": "Service",
+      "group": "Rare Diseases",
+      "name": "",
+      "wgs": 13017
+    }
+  ]
+}

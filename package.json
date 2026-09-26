@@ -4,6 +4,9 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
+    "data": "node scripts/build-data.mjs",
+    "prestart": "npm run data",
+    "prebuild": "npm run data",
     "start": "docusaurus start",
     "build": "docusaurus build",
     "serve": "docusaurus serve",
