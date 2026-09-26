@@ -94,3 +94,26 @@ test('schedule: supplied times and every day present', () => {
   }
   for (const d of ['Sun 7 Feb', 'Mon 8 Feb', 'Tue 9 Feb', 'Wed 10 Feb', 'Thu 11 Feb', 'Fri 12 Feb']) assert.ok(section.includes(d), d);
 });
+
+test('organizers: roles and all partners', () => {
+  const html = read('index.html');
+  assert.match(html, /id="organizers"/);
+  for (const s of ['Organizer', 'Supported by', 'Data partners', 'Faculty of Medicine, Chiang Mai University', 'Health Systems Research Institute (HSRI)', 'NSTDA', 'Genomics Thailand']) {
+    assert.ok(html.includes(s), `missing "${s}"`);
+  }
+});
+
+test('home: every section present in spec order', () => {
+  const html = read('index.html');
+  const ids = ['objectives', 'data', 'dates', 'important-dates', 'schedule', 'apply', 'organizers', 'links'];
+  const positions = ids.map((id) => html.indexOf(`id="${id}"`));
+  positions.forEach((p, i) => assert.ok(p > -1, `missing #${ids[i]}`));
+  assert.deepEqual([...positions].sort((a, b) => a - b), positions, 'sections out of order');
+});
+
+test('links: external links open safely in a new tab', () => {
+  const html = read('index.html');
+  const section = html.slice(html.indexOf('id="links"'));
+  assert.match(section, /href="https:\/\/data\.genomicsthailand\.com"[^>]*target="_blank"[^>]*rel="noopener noreferrer"/);
+  assert.match(section, /href="https:\/\/2026\.biohackathon\.org"/);
+});

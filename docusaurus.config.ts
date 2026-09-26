@@ -16,6 +16,7 @@ const config: Config = {
   organizationName: 'GeTH-Hackathon',
   projectName: 'GH26',
   onBrokenLinks: 'throw',
+  onBrokenAnchors: 'throw',
   i18n: {defaultLocale: 'en', locales: ['en']},
   headTags: [
     {tagName: 'link', attributes: {rel: 'preconnect', href: 'https://fonts.googleapis.com'}},

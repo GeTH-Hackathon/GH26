@@ -1,10 +1,11 @@
+import {useAnchor} from '@site/src/lib/useAnchor';
 import SlashHeading from '@site/src/components/ui/SlashHeading';
 import {event} from '@site/src/data/event';
 import styles from './Objectives.module.css';
 
 export default function Objectives() {
   return (
-    <section id="objectives" className="section">
+    <section id={useAnchor('objectives')} className="section">
       <div className="container-swiss">
         <SlashHeading>objectives</SlashHeading>
         <ol className={styles.list}>

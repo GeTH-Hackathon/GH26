@@ -1,0 +1,9 @@
+.row { display: grid; gap: 12px; padding: 24px 0; border-top: 1px solid var(--rule); }
+.list { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 16px 48px; }
+.name { font-size: clamp(1.25rem, 2.6vw, 2rem); font-weight: 500; letter-spacing: -0.03em; line-height: 1.15; }
+.link { text-decoration: none; }
+.link:hover .name { text-decoration: underline; text-decoration-color: var(--accent); }
+.logo { height: 48px; width: auto; }
+@media (min-width: 997px) {
+  .row { grid-template-columns: 1fr 3fr; align-items: baseline; }
+}

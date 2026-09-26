@@ -6,6 +6,8 @@ import DatesVenue from '@site/src/components/sections/DatesVenue';
 import ImportantDates from '@site/src/components/sections/ImportantDates';
 import Schedule from '@site/src/components/sections/Schedule';
 import Apply from '@site/src/components/sections/Apply';
+import Organizers from '@site/src/components/sections/Organizers';
+import Links from '@site/src/components/sections/Links';
 
 export default function Home() {
   return (
@@ -18,6 +20,8 @@ export default function Home() {
         <ImportantDates />
         <Schedule />
         <Apply />
+        <Organizers />
+        <Links />
       </main>
     </Layout>
   );

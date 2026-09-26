@@ -1,3 +1,4 @@
+import {useAnchor} from '@site/src/lib/useAnchor';
 import Link from '@docusaurus/Link';
 import SlashHeading from '@site/src/components/ui/SlashHeading';
 import ApplyButton from '@site/src/components/ui/ApplyButton';
@@ -6,7 +7,7 @@ import styles from './Apply.module.css';
 
 export default function Apply() {
   return (
-    <section id="apply" className="section">
+    <section id={useAnchor('apply')} className="section">
       <div className="container-swiss">
         <SlashHeading>apply</SlashHeading>
         <div className={styles.grid}>

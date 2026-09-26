@@ -1,3 +1,4 @@
+import {useAnchor} from '@site/src/lib/useAnchor';
 import SlashHeading from '@site/src/components/ui/SlashHeading';
 import TBA from '@site/src/components/ui/TBA';
 import {event} from '@site/src/data/event';
@@ -5,7 +6,7 @@ import styles from './ImportantDates.module.css';
 
 export default function ImportantDates() {
   return (
-    <section id="important-dates" className="section">
+    <section id={useAnchor('important-dates')} className="section">
       <div className="container-swiss">
         <SlashHeading>important dates</SlashHeading>
         <ol className={styles.list}>

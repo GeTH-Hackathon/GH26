@@ -1,3 +1,4 @@
+import {useAnchor} from '@site/src/lib/useAnchor';
 import clsx from 'clsx';
 import SlashHeading from '@site/src/components/ui/SlashHeading';
 import {schedule, hackDaysSummary, type ScheduleDay} from '@site/src/data/schedule';
@@ -30,7 +31,7 @@ export default function Schedule() {
   // Phones see the four identical hacking days as one card; wider screens see each day.
   const combined: ScheduleDay | undefined = hack[0] && {...hack[0], ...hackDaysSummary, title: `Hackathon days ×${hack.length}`};
   return (
-    <section id="schedule" className="section">
+    <section id={useAnchor('schedule')} className="section">
       <div className="container-swiss">
         <SlashHeading>schedule</SlashHeading>
         <div className={styles.grid}>

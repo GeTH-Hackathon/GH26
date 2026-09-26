@@ -1,3 +1,4 @@
+import {useAnchor} from '@site/src/lib/useAnchor';
 import SlashHeading from '@site/src/components/ui/SlashHeading';
 import TBA from '@site/src/components/ui/TBA';
 import {event} from '@site/src/data/event';
@@ -6,7 +7,7 @@ import styles from './DatesVenue.module.css';
 export default function DatesVenue() {
   const {venue} = event;
   return (
-    <section id="dates" className="section">
+    <section id={useAnchor('dates')} className="section">
       <div className="container-swiss">
         <SlashHeading>{'dates & venue'}</SlashHeading>
         <div className={styles.grid}>

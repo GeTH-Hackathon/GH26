@@ -1,3 +1,4 @@
+import {useAnchor} from '@site/src/lib/useAnchor';
 import Link from '@docusaurus/Link';
 import SlashHeading from '@site/src/components/ui/SlashHeading';
 import Marquee from '@site/src/components/ui/Marquee';
@@ -10,7 +11,7 @@ import styles from './Data.module.css';
 export default function Data() {
   const max = wgs.byGroup[0]?.wgs ?? 1;
   return (
-    <section id="data" className="section section--flush">
+    <section id={useAnchor('data')} className="section section--flush">
       <div className="container-swiss">
         <div className={styles.panel}>
           <span className={styles.vertical} aria-hidden="true">genomics thailand</span>
