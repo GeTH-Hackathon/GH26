@@ -57,10 +57,19 @@ test('hero: wordmark, accessible title and status line', () => {
   assert.match(html, /role="img"[^>]*aria-label="Barcode of 118 Genomics Thailand projects/);
 });
 
-test('objectives: three numbered objectives', () => {
+test('objectives: event-level intro and five numbered objectives', () => {
   const html = read('index.html');
-  assert.match(html, /id="objectives"/);
-  for (const n of ['01', '02', '03']) assert.match(html, new RegExp(`>${n}<`));
+  const section = html.slice(html.indexOf('id="objectives"'), html.indexOf('id="data"'));
+  for (const n of ['01', '02', '03', '04', '05']) assert.match(section, new RegExp(`>${n}<`));
+  assert.doesNotMatch(section, />06</);
+  for (const s of [
+    'questions that matter at the bedside and in the lab',
+    'large language models',
+    'analyse in place and share only aggregate results',
+    'Tackle real clinical and biological questions',
+    'Grow a lasting community',
+  ]) assert.ok(section.includes(s), `missing "${s}"`);
+  assert.doesNotMatch(section, /Stress-test|Genomic Landscape Report/, 'grant-project objectives removed');
 });
 
 test('data: en-US formatted totals, all seven groups and the data types', () => {

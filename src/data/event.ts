@@ -19,6 +19,7 @@ export type EventInfo = {
   seatsLabel: string;
   contactEmail: string | null;
   copyright: string;
+  objectivesIntro: string[];
   objectives: string[];
   audience: string[];
   criteria: string[];
@@ -55,10 +56,16 @@ export const event: EventInfo = {
   seatsLabel: 'About 50 seats',
   contactEmail: null,
   copyright: '© 2026 Faculty of Medicine, Chiang Mai University',
+  objectivesIntro: [
+    'GeTH Hackathon brings bioinformaticians, clinicians and data scientists together around 50,000 whole genomes from the Genomics Thailand programme. We hack on questions that matter at the bedside and in the lab: why diseases present differently in Thai and Southeast Asian populations, which variants change how patients respond to drugs, and how families with rare diseases can reach a diagnosis sooner.',
+    'We also want to explore how reproducible workflows, standard ontologies and AI, including large language models, can turn variant calls into interpretable, clinically meaningful knowledge. All analysis happens inside a Trusted Research Environment: participants analyse in place and share only aggregate results. Through collaborative, hands-on hacking, we aim to incubate ideas and solutions that move genomic medicine in Thailand forward.',
+  ],
   objectives: [
-    "Build a research community able to analyse Thailand's first 50,000 genomes.",
-    'Stress-test a secure, no-download Trusted Research Environment at population scale.',
-    'Produce a national Genomic Landscape Report and a prototype genomic and population dashboard.',
+    'Tackle real clinical and biological questions with Thai genomic data: disease risk, rare-disease diagnosis, pharmacogenomics and population health.',
+    'Characterise the genetic diversity of the Thai population and how it differs from global reference panels.',
+    'Build reusable tools and reproducible workflows for population-scale analysis inside a Trusted Research Environment.',
+    'Explore how AI and large language models can help interpret variants and link genomic findings to clinical knowledge.',
+    'Grow a lasting community of Thai and regional researchers, clinicians and data scientists working with national genomic data.',
   ],
   audience: ['Researchers', 'Bioinformaticians', 'Clinicians', 'Data scientists'],
   criteria: [

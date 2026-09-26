@@ -110,10 +110,7 @@ A `null` value or `exact: false` renders with a small "TBA" tag.
    - Status bar, the giant "GeTH Hackathon" wordmark (one line on desktop, two lines below 997px), the kicker "/ hackathon 2027", and the tagline "Unlocking 50,000 Thai genomes for national precision medicine."
    - Primary Apply button and a secondary "See the data ↓" link.
    - Barcode art.
-2. **/ objectives.** A numbered hairline list with three items, taken from brief §3:
-   - 01 Build a research community able to analyse Thailand's first 50,000 genomes.
-   - 02 Stress-test a secure, no-download Trusted Research Environment at population scale.
-   - 03 Produce a national Genomic Landscape Report and a prototype genomic and population dashboard.
+2. **/ objectives.** Event-level goals, not the grant project's (revised 2026-09-26, inspired by the DBCLS BioHackathon statement). Two intro paragraphs (clinical and biological questions; reproducible workflows, ontologies and AI/LLMs; analyse in place in the TRE), then a numbered hairline list of five: clinical and biological questions; Thai genetic diversity; reusable tools and reproducible workflows in the TRE; AI/LLMs for variant interpretation; a lasting community. The text lives in `event.objectivesIntro` and `event.objectives`.
 3. **/ the data.** A black panel containing:
    - a ghost-grey "(51,461)" WGS count, and "118 projects" and "7 groups" counters;
    - a CSS bar chart of WGS by group;

@@ -8,6 +8,9 @@ export default function Objectives() {
     <section id={useAnchor('objectives')} className="section">
       <div className="container-swiss">
         <SlashHeading>objectives</SlashHeading>
+        <div className={styles.intro}>
+          {event.objectivesIntro.map((p) => <p key={p.slice(0, 32)}>{p}</p>)}
+        </div>
         <ol className={styles.list}>
           {event.objectives.map((text, i) => (
             <li key={text} className={styles.item}>

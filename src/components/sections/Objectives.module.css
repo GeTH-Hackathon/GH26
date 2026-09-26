@@ -1,3 +1,5 @@
+.intro { max-width: 68ch; margin-bottom: clamp(40px, 6vw, 72px); font-size: clamp(1.05rem, 1.6vw, 1.25rem); line-height: 1.55; }
+.intro p:last-child { margin-bottom: 0; }
 .list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--rule); }
 .item { display: grid; grid-template-columns: 3rem 1fr; gap: 16px; padding: 24px 0; border-bottom: 1px solid var(--rule); }
 .num { color: var(--mute); font-size: 1.25rem; font-weight: 500; }
