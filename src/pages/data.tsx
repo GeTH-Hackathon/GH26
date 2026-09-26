@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useRef, useState} from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import SlashHeading from '@site/src/components/ui/SlashHeading';
@@ -6,10 +6,13 @@ import wgs from '@site/src/data/wgs.json';
 import {event} from '@site/src/data/event';
 import {fmt} from '@site/src/lib/format';
 import {filterProjects} from '@site/src/lib/filterProjects';
+import {paginate, pageNumbers} from '@site/src/lib/paginate';
 import styles from './data.module.css';
 
 type Key = 'id' | 'type' | 'group' | 'name' | 'wgs';
 type Sort = {key: Key; dir: 1 | -1};
+
+const PER_PAGE = 10;
 
 const COLUMNS: {key: Key; label: string; numeric?: boolean}[] = [
   {key: 'id', label: 'Project ID'},
@@ -22,6 +25,8 @@ const COLUMNS: {key: Key; label: string; numeric?: boolean}[] = [
 export default function DataPage() {
   const [sort, setSort] = useState<Sort>({key: 'wgs', dir: -1});
   const [query, setQuery] = useState('');
+  const [page, setPage] = useState(1);
+  const tableRef = useRef<HTMLDivElement>(null);
   const matches = filterProjects(wgs.projects, query);
   const matchedWgs = matches.reduce((sum, p) => sum + p.wgs, 0);
   const rows = [...matches].sort((a, b) => {
@@ -30,8 +35,19 @@ export default function DataPage() {
     const c = typeof av === 'number' && typeof bv === 'number' ? av - bv : String(av).localeCompare(String(bv));
     return c * sort.dir || a.id.localeCompare(b.id);
   });
-  const toggle = (key: Key) =>
+  const pager = paginate(rows.length, page, PER_PAGE);
+  const pageRows = rows.slice(pager.start, pager.end);
+  const filtered = query.trim() !== '';
+  const toggle = (key: Key) => {
     setSort((s) => (s.key === key ? {key, dir: s.dir === 1 ? -1 : 1} : {key, dir: key === 'wgs' ? -1 : 1}));
+    setPage(1);
+  };
+  // Keep the table header in view after paging (matters on phones, where the pager is far below it).
+  const goTo = (n: number) => {
+    setPage(n);
+    const top = tableRef.current?.getBoundingClientRect().top ?? 0;
+    if (top < 0) tableRef.current?.scrollIntoView({block: 'start'});
+  };
 
   return (
     <Layout title="The data" description="The 50,000 Thai whole genomes available at GeTH Hackathon 2027, by project and disease group.">
@@ -65,14 +81,21 @@ export default function DataPage() {
               className={styles.searchInput}
               placeholder="e.g. tuberculosis, pharmacogenomics, 64-1"
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(e) => {
+                setQuery(e.target.value);
+                setPage(1);
+              }}
               autoComplete="off"
             />
             <p className={styles.status} aria-live="polite">
-              Showing {matches.length} of {wgs.totals.projects} projects · {fmt(matchedWgs)} genomes
+              {rows.length === 0
+                ? `Showing 0 of ${wgs.totals.projects} projects`
+                : `Showing ${pager.start + 1}–${pager.end} of ${rows.length} ${filtered ? 'matching ' : ''}projects`}
+              {' · '}
+              {fmt(matchedWgs)} genomes
             </p>
           </div>
-          <div className={styles.tableWrap}>
+          <div className={styles.tableWrap} ref={tableRef}>
             <table className={styles.table}>
               <caption className="sr-only">Projects contributing whole genomes to Genomics Thailand, with WGS counts</caption>
               <thead>
@@ -97,7 +120,7 @@ export default function DataPage() {
                     <td colSpan={5} className={styles.empty}>No projects match “{query.trim()}”.</td>
                   </tr>
                 )}
-                {rows.map((p, i) => (
+                {pageRows.map((p, i) => (
                   <tr key={`${p.id}-${i}`} data-row="project">
                     <td>{p.id}</td>
                     <td>{p.type}</td>
@@ -115,7 +138,30 @@ export default function DataPage() {
               </tfoot>
             </table>
           </div>
-          <p><Link to="/#apply">How to apply →</Link></p>
+          {pager.pageCount > 1 && (
+          <nav className={styles.pager} aria-label="Project table pages">
+            <button type="button" className={styles.pageStep} disabled={pager.page === 1} onClick={() => goTo(pager.page - 1)}>← Previous</button>
+            <ol className={styles.pages}>
+              {pageNumbers(pager.page, pager.pageCount).map((n, i) =>
+                n === 'gap' ? (
+                  <li key={`gap-${i}`} className={styles.gap} aria-hidden="true">…</li>
+                ) : (
+                  <li key={n}>
+                    <button
+                      type="button"
+                      className={styles.pageNum}
+                      aria-current={n === pager.page ? 'page' : undefined}
+                      aria-label={`Page ${n}`}
+                      onClick={() => goTo(n)}>{n}</button>
+                  </li>
+                ),
+              )}
+            </ol>
+            <button type="button" className={styles.pageStep} disabled={pager.page === pager.pageCount} onClick={() => goTo(pager.page + 1)}>Next →</button>
+            <span className={styles.pageOf}>Page {pager.page} of {pager.pageCount}</span>
+          </nav>
+        )}
+        <p><Link to="/#apply">How to apply →</Link></p>
         </div>
       </main>
     </Layout>

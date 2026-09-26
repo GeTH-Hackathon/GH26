@@ -118,12 +118,10 @@ test('links: external links open safely in a new tab', () => {
   assert.match(section, /href="https:\/\/2026\.biohackathon\.org"/);
 });
 
-test('/data: one row per project, awkward rows rendered faithfully', () => {
+test('/data: first page of 10 projects, awkward rows rendered faithfully', () => {
   const html = read('data/index.html');
-  assert.equal((html.match(/data-row="project"/g) ?? []).length, 118);
+  assert.equal((html.match(/data-row="project"/g) ?? []).length, 10);
   assert.match(html, /<td>00-001(?:<\/td>)?<td>Service(?:<\/td>)?<td>Rare Diseases(?:<\/td>)?<td>—/);
-  assert.ok(html.includes('709/2561 (EC3)'));
-  assert.ok(html.includes('Non-Rare & Non-Cancer'));
   assert.ok(html.includes('51,461'));
   for (const t of ['VCF', 'PLINK', 'HLA', 'CYP', 'Structural variants', 'Demographics']) assert.ok(html.includes(t), t);
 });
@@ -169,6 +167,22 @@ test('/data: project table is searchable and captioned', () => {
   const html = read('data/index.html');
   assert.match(html, /<label[^>]*for="project-search"[^>]*>Search projects/);
   assert.match(html, /<input[^>]*type="search"[^>]*id="project-search"|<input[^>]*id="project-search"[^>]*type="search"/);
-  assert.match(html, /aria-live="polite"[^>]*>Showing 118 of 118 projects · 51,461 genomes/);
+  assert.match(html, /aria-live="polite"[^>]*>Showing 1–10 of 118 projects · 51,461 genomes/);
   assert.match(html, /<caption[^>]*>/);
+});
+
+test('/data: pager with page numbers, current page marked, previous disabled on page 1', () => {
+  const html = read('data/index.html');
+  const nav = html.slice(html.search(/<nav[^>]*aria-label="Project table pages"/));
+  assert.ok(nav.length < html.length, 'missing pager nav');
+  assert.match(nav, /Page 1 of 12/);
+  assert.match(nav, /<button[^>]*aria-current="page"[^>]*>1<\/button>/);
+  assert.match(nav, /<button[^>]*disabled[^>]*>← Previous<\/button>/);
+  assert.match(nav, />12<\/button>/);
+});
+
+test('navbar logo reads "GeTH Hackathon" on every page', () => {
+  for (const page of PAGES) {
+    assert.match(read(page), /class="navbar__title[^"]*">GeTH Hackathon</, page);
+  }
 });

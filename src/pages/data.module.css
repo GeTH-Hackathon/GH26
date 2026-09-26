@@ -24,3 +24,14 @@
 .status { margin: 0; font-size: 14px; color: #555; font-variant-numeric: tabular-nums; }
 .empty { padding: 24px 0 !important; color: #555; }
 .searchInput::-webkit-search-cancel-button { filter: grayscale(1) brightness(0); cursor: pointer; }
+.tableWrap { scroll-margin-top: 80px; }
+.pager { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin: -24px 0 48px; }
+.pages { display: flex; flex-wrap: wrap; gap: 4px; list-style: none; padding: 0; margin: 0; }
+.pageNum, .pageStep { font: 500 14px/1 var(--font); color: var(--ink); background: transparent; border: 1px solid var(--rule); border-radius: 999px; cursor: pointer; }
+.pageNum { min-width: 36px; height: 36px; padding: 0 10px; font-variant-numeric: tabular-nums; }
+.pageStep { height: 36px; padding: 0 14px; }
+.pageNum:hover, .pageStep:hover:not([disabled]) { border-color: var(--ink); }
+.pageNum[aria-current='page'] { background: var(--accent); border-color: var(--accent); font-weight: 600; }
+.pageStep[disabled] { color: var(--mute); cursor: not-allowed; }
+.gap { display: flex; align-items: center; padding: 0 4px; color: var(--mute); }
+.pageOf { margin-left: auto; font-size: 14px; color: #555; font-variant-numeric: tabular-nums; }

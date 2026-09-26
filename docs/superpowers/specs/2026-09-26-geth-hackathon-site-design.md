@@ -84,7 +84,7 @@ A `null` value or `exact: false` renders with a small "TBA" tag.
 ## 4. Visual system (Swiss, based on the reference)
 
 - **Colour:** `--accent #FF4A1C`, `--ink #0A0A0A`, `--paper #FFFFFF`, `--mute #9A9A9A`, `--rule #E6E6E6`. No other hues. The only extra colours are the disease-group tints in the charts and barcode: seven tints (one per group) drawn from accent, ink and mute.
-- **Type:** Inter Tight (Google Fonts, weights 400/500/600), falling back to Helvetica Neue and Arial. Section headings use `clamp(2.5rem, 7vw, 5.5rem)`. The hero wordmark is sized from the content width (`(content width) / 2.2`, since "geth." measures about 2.05em), set `nowrap` with a horizontal clip, and has bottom padding so the "g" descender clears the tagline. Display text uses letter-spacing −0.05em and is set lowercase with a trailing full stop. Body text is 16–18px. Labels are 11px uppercase with letter-spacing +0.04em.
+- **Type:** Inter Tight (Google Fonts, weights 400/500/600), falling back to Helvetica Neue and Arial. Section headings use `clamp(2.5rem, 7vw, 5.5rem)`. The hero wordmark is sized from the content width (`(content width) / 2.2`, since "geth." measures about 2.05em), set `nowrap` with a horizontal clip, and has bottom padding so the "g" descender clears the tagline. Display text uses letter-spacing −0.05em and is set lowercase with a trailing full stop. The navbar logo reads "GeTH Hackathon". Body text is 16–18px. Labels are 11px uppercase with letter-spacing +0.04em.
 - **Motifs:**
   - a `/ ` prefix on every section heading;
   - a small uppercase status bar reading `FEB 7–12 2027 \ CHIANG MAI \ 50K GENOMES`;

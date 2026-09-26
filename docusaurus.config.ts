@@ -36,7 +36,7 @@ const config: Config = {
   themeConfig: {
     colorMode: {defaultMode: 'light', disableSwitch: true, respectPrefersColorScheme: false},
     navbar: {
-      title: 'geth.',
+      title: 'GeTH Hackathon',
       items: [
         {to: '/#objectives', label: 'Objectives', position: 'left'},
         {to: '/#data', label: 'Data', position: 'left'},

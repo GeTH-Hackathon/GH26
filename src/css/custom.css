@@ -61,7 +61,8 @@ a:hover { text-decoration-color: currentColor; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
 .navbar { border-bottom: 1px solid var(--rule); }
-.navbar__title { font-size: 1.6rem; font-weight: 600; letter-spacing: -0.05em; color: var(--accent); }
+.navbar__brand { text-decoration: none; }
+.navbar__title { font-size: 1.35rem; font-weight: 600; letter-spacing: -0.04em; color: var(--accent); }
 .navbar__link { font-size: 12px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; }
 .navbar__link--active { color: var(--ink); }
 .navbar-apply { background: var(--accent); border-radius: 999px; padding: 6px 16px; margin-left: 8px; }
