@@ -3,7 +3,7 @@ title: Terms & Conditions and Code of Conduct
 description: Confidentiality, data-security and conduct rules for GeTH Hackathon 2027 participants.
 ---
 
-<h1 className="slash-heading"><span className="slash" aria-hidden="true">/ </span>terms &amp; conditions.</h1>
+<h1 className="slash-heading"><span className="slash" aria-hidden="true">/ </span>Terms &amp; conditions.</h1>
 
 **Terms & Conditions and Code of Conduct · GeTH Hackathon 2027**
 

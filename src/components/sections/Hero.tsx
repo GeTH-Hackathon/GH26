@@ -11,7 +11,7 @@ export default function Hero() {
           <span className="label">{event.statusLine}</span>
           <a className="label" href="#apply">Apply ↗</a>
         </div>
-        <p className={styles.kicker}>/ hackathon 2027</p>
+        <p className={styles.kicker}>/ Hackathon 2027</p>
         <h1 className={styles.title}>
           <span className={styles.wordmark}>
             {event.brand.split(' ').map((word, i) => (

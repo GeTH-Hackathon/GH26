@@ -9,7 +9,7 @@ export default function DatesVenue() {
   return (
     <section id={useAnchor('dates')} className="section">
       <div className="container-swiss">
-        <SlashHeading>{'dates & venue'}</SlashHeading>
+        <SlashHeading>{'Dates & venue'}</SlashHeading>
         <div className={styles.grid}>
           <div>
             <p className="label">When</p>

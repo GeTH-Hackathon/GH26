@@ -7,7 +7,7 @@ export default function Objectives() {
   return (
     <section id={useAnchor('objectives')} className="section">
       <div className="container-swiss">
-        <SlashHeading>objectives</SlashHeading>
+        <SlashHeading>Objectives</SlashHeading>
         <div className={styles.intro}>
           {event.objectivesIntro.map((p) => <p key={p.slice(0, 32)}>{p}</p>)}
         </div>

@@ -8,7 +8,7 @@ export default function ImportantDates() {
   return (
     <section id={useAnchor('important-dates')} className="section">
       <div className="container-swiss">
-        <SlashHeading>important dates</SlashHeading>
+        <SlashHeading>Important dates</SlashHeading>
         <ol className={styles.list}>
           {event.importantDates.map((d) => (
             <li key={d.label} className={styles.row}>

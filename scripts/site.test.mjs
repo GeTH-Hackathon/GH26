@@ -278,3 +278,25 @@ test('eligibility: open to Thai nationals only, stated in Apply and reflected in
   const objectives = html.slice(html.indexOf('id="objectives"'), html.indexOf('id="data"'));
   assert.doesNotMatch(objectives, /regional researchers/);
 });
+
+test('data headings read "/ Genomics data." on the home page and /data', () => {
+  const heading = (html, tag) => (html.match(new RegExp(`<${tag} class="slash-heading">(.*?)</${tag}>`, 'gs')) ?? []).map((h) => h.replace(/<[^>]+>/g, '').trim());
+  const home = read('index.html');
+  const homeData = home.slice(home.indexOf('id="data"'), home.indexOf('id="dates"'));
+  assert.deepEqual(heading(homeData, 'h2'), ['/ Genomics data.']);
+  const page = read('data/index.html');
+  assert.deepEqual(heading(page, 'h1'), ['/ Genomics data.']);
+  assert.match(page, /<title[^>]*>Genomics data \| GeTH Hackathon 2027<\/title>/);
+});
+
+test('every slash heading is sentence case: "/ " then an upper-case first letter, never forced to lowercase', () => {
+  const all = [];
+  for (const page of PAGES) {
+    for (const m of read(page).matchAll(/<(h1|h2) class="slash-heading">(.*?)<\/\1>/gs)) all.push(`${page}: ${m[2].replace(/<[^>]+>/g, '').trim()}`);
+  }
+  assert.ok(all.length >= 11, `expected every section heading, got ${all.length}`);
+  const bad = all.filter((h) => !/: \/ [A-Z]/.test(h));
+  assert.deepEqual(bad, []);
+  assert.match(read('index.html'), /\/ Hackathon 2027/);
+  assert.doesNotMatch(builtCss(), /\.slash-heading\{[^}]*text-transform:\s*lowercase/);
+});

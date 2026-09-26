@@ -15,7 +15,7 @@ export default function Data() {
       <div className="container-swiss">
         <div className={styles.panel}>
           <span className={styles.vertical} aria-hidden="true">genomics thailand</span>
-          <SlashHeading>the data</SlashHeading>
+          <SlashHeading>Genomics data</SlashHeading>
           <div className={styles.stats}>
             <p className={styles.big}>({fmt(wgs.totals.wgs)})</p>
             <dl className={styles.counters}>

@@ -8,7 +8,7 @@ export default function Links() {
   return (
     <section id={useAnchor('links')} className="section">
       <div className="container-swiss">
-        <SlashHeading>links</SlashHeading>
+        <SlashHeading>Links</SlashHeading>
         <ul className={styles.list}>
           {event.links.map((l) => (
             <li key={l.href} className={styles.row}>

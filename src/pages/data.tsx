@@ -51,10 +51,10 @@ export default function DataPage() {
   };
 
   return (
-    <Layout title="The data" description="The 50,000 Thai whole genomes available at GeTH Hackathon 2027, by project and disease group.">
+    <Layout title="Genomics data" description="The 50,000 Thai whole genomes available at GeTH Hackathon 2027, by project and disease group.">
       <main className="section section--flush">
         <div className="container-swiss">
-          <SlashHeading as="h1">the data</SlashHeading>
+          <SlashHeading as="h1">Genomics data</SlashHeading>
           <dl className={styles.stats}>
             <div><dt className="label">Whole genomes</dt><dd>{fmt(wgs.totals.wgs)}</dd></div>
             <div><dt className="label">Projects</dt><dd>{fmt(wgs.totals.projects)}</dd></div>

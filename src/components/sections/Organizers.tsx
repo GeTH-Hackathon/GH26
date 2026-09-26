@@ -27,7 +27,7 @@ export default function Organizers() {
   return (
     <section id={useAnchor('organizers')} className="section">
       <div className="container-swiss">
-        <SlashHeading>organizers</SlashHeading>
+        <SlashHeading>Organizers</SlashHeading>
         {ROLES.map(({role, plural}) => {
           const partners = event.partners.filter((p) => p.role === role);
           if (partners.length === 0) return null;

@@ -33,7 +33,7 @@ export default function Schedule() {
   return (
     <section id={useAnchor('schedule')} className="section">
       <div className="container-swiss">
-        <SlashHeading>schedule</SlashHeading>
+        <SlashHeading>Schedule</SlashHeading>
         <div className={styles.grid}>
           {opening.map((d) => <DayCard key={d.dayLabel} day={d} />)}
           {combined && <DayCard day={combined} className={styles.mobileOnly} />}

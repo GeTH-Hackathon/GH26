@@ -9,10 +9,11 @@ export default function Apply() {
   return (
     <section id={useAnchor('apply')} className="section">
       <div className="container-swiss">
-        <SlashHeading>apply</SlashHeading>
+        <SlashHeading>Apply</SlashHeading>
         <div className={styles.grid}>
           <div>
             <p className={styles.lead}>{event.seatsLabel}. Individual applications, reviewed by the organizing committee.</p>
+            <p className={styles.eligibility}>{event.eligibility}</p>
             <h3 className="label">Who should apply</h3>
             <ul className={styles.list}>
               {event.audience.map((a) => <li key={a}>{a}</li>)}
