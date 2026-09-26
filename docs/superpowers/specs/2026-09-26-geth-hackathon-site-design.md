@@ -38,7 +38,7 @@ The event is modelled on DBCLS BioHackathon 2026 (https://2026.biohackathon.org)
 
 ## 3. Architecture
 
-**Stack:** Docusaurus 3.10 (classic preset) with TypeScript 6 and React 19 (as in the official 3.10 TypeScript template), on Node 20+ locally and Node 22 in CI, using npm. `trailingSlash: true`. The `docs` and `blog` plugins are disabled; only the pages plugin is used. A navbar toggle switches light/dark (added 2026-09-26); the first visit follows the device's `prefers-color-scheme` and the visitor's choice is remembered. `onBrokenLinks: 'throw'`.
+**Stack:** Docusaurus 3.10 (classic preset) with TypeScript 6 and React 19 (as in the official 3.10 TypeScript template), on Node 20+ locally and Node 22 in CI, using npm. `trailingSlash: true`. The `docs` and `blog` plugins are disabled; only the pages plugin is used. A navbar toggle switches light/dark (added 2026-09-26). Light is the default for every visitor, regardless of device setting; a chosen theme is remembered. `onBrokenLinks: 'throw'`.
 
 ```
 docusaurus.config.ts        url/baseUrl from env (SITE_URL, BASE_URL), defaults for *.github.io

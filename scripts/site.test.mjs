@@ -221,10 +221,12 @@ const builtCss = () =>
     .map((f) => readFileSync(new URL(`../build/assets/css/${f}`, import.meta.url), 'utf8'))
     .join('');
 
-test('theme: navbar has a dark/light toggle and first visit follows the device setting', () => {
+test('theme: navbar has a dark/light toggle and light is the default (device setting ignored)', () => {
   const html = read('index.html');
   assert.match(html, /<button[^>]*aria-label="Switch between dark and light mode/);
-  assert.match(html, /prefers-color-scheme: ?dark/);
+  // Docusaurus' inline script: the visitor's stored choice, otherwise light.
+  assert.match(html, /setAttribute\("data-theme",\s*\w+\s*\|\|\s*"light"\)/);
+  assert.doesNotMatch(html, /prefers-color-scheme: ?dark/);
 });
 
 test('theme: dark palette tokens exist in the built CSS', () => {
