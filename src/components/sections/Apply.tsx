@@ -30,7 +30,7 @@ export default function Apply() {
               {event.formUrl ? 'Applications are made through Google Forms.' : 'The Google Form will be linked here when applications open.'}
             </p>
             <ul className={styles.docs}>
-              <li><Link to="/terms">Terms &amp; Conditions</Link> <span className="label">Coming soon</span></li>
+              <li><Link to="/terms">Terms &amp; Conditions</Link></li>
               <li><Link to="/tre-guidelines">TRE guideline instructions</Link> <span className="label">Coming soon</span></li>
             </ul>
           </aside>

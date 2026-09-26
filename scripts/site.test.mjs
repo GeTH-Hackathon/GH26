@@ -138,12 +138,37 @@ test('/data: default sort is WGS descending', () => {
   assert.match(html, /aria-sort="descending"/);
 });
 
-test('placeholder pages say "Will be announced soon" and link back to apply', () => {
-  for (const page of ['terms/index.html', 'tre-guidelines/index.html']) {
-    const html = read(page);
-    assert.match(html, /Will be announced soon\./, page);
-    assert.match(html, /href="[^"]*#apply"/, page);
-  }
+test('TRE guidelines page is still a placeholder that links back to apply', () => {
+  const html = read('tre-guidelines/index.html');
+  assert.match(html, /Will be announced soon\./);
+  assert.match(html, /href="[^"]*#apply"/);
+});
+
+test('terms page publishes the confidentiality rules and code of conduct', () => {
+  const html = read('terms/index.html');
+  assert.doesNotMatch(html, /Will be announced soon/);
+  for (const s of [
+    'Confidentiality and disclosure', 'Data access and security', 'Code of conduct', 'Breaches', 'Changes and contact',
+    'Sharing any non-public information from this event is strictly prohibited',
+    'without prior written permission from the Health Systems Research Institute (HSRI)',
+    'Do not distribute or disclose any data or analytical findings externally',
+    'Trusted Research Environment', 'Personal Data Protection Act',
+  ]) assert.ok(html.includes(s), `missing "${s}"`);
+  assert.match(html, /href="[^"]*#apply"/);
+});
+
+test('home: Terms no longer marked "coming soon"; TRE guidelines still are', () => {
+  const html = read('index.html');
+  const between = (from, start, end) => {
+    const i = html.indexOf(start, html.indexOf(from));
+    return html.slice(i, html.indexOf(end, i));
+  };
+  // Apply section: the Terms row (up to the TRE row) has no "Coming soon" tag; the TRE row keeps it.
+  assert.doesNotMatch(between('id="apply"', 'Terms & Conditions', 'TRE guideline instructions'), /Coming soon/);
+  assert.match(between('id="apply"', 'TRE guideline instructions', '</aside>'), /Coming soon/);
+  // Links section: same rule for the "Will be announced soon" notes.
+  assert.doesNotMatch(between('id="links"', 'Terms & Conditions', 'TRE guideline instructions'), /Will be announced soon/);
+  assert.match(between('id="links"', 'TRE guideline instructions', '</ul>'), /Will be announced soon/);
 });
 
 test('schedule: Friday shows no breakfast time (only supplied times are shown)', () => {

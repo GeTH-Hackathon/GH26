@@ -18,7 +18,7 @@ export default function Links() {
           ))}
           <li className={styles.row}>
             <Link to="/terms" className={styles.link}>Terms &amp; Conditions</Link>
-            <span className={styles.note}>Will be announced soon</span>
+            <span className={styles.note}>Confidentiality, data security and code of conduct</span>
           </li>
           <li className={styles.row}>
             <Link to="/tre-guidelines" className={styles.link}>TRE guideline instructions</Link>
