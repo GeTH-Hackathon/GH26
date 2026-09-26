@@ -73,16 +73,18 @@ test('objectives: event-level intro and five numbered objectives', () => {
   assert.doesNotMatch(section, /Stress-test|Genomic Landscape Report/, 'grant-project objectives removed');
 });
 
-test('data: en-US formatted totals, all seven groups and the data types', () => {
+test('data: counter, grouped barcode (118 bars, 7 labelled columns), data-type descriptions, no marquee', () => {
   const html = read('index.html');
-  assert.match(html, /id="data"/);
-  assert.match(html, /\(51,461\)/);
-  assert.match(html, />118</);
-  for (const g of ['Rare Diseases', 'NCD', 'Cancer', 'Pharmacogenomics', 'Infectious Diseases', 'Popgen', 'Non-Rare & Non-Cancer']) {
-    assert.ok(html.includes(g), `missing group ${g}`);
-  }
-  for (const t of ['VCF', 'PLINK', 'HLA', 'CYP', 'STRUCTURAL VARIANTS', 'DEMOGRAPHICS']) assert.ok(html.includes(t), `missing ${t}`);
-  assert.match(html, /href="https:\/\/data\.genomicsthailand\.com"/);
+  const data = html.slice(html.indexOf('id="data"'), html.indexOf('id="dates"'));
+  assert.match(data, /data-count="51461"[^>]*>51,461</);
+  assert.match(data, /118 projects · 7 disease groups/);
+  assert.equal((data.match(/<rect[^>]*data-bar/g) ?? []).length, 118);
+  assert.equal((data.match(/data-col/g) ?? []).length, 7);
+  for (const g of ['Rare Diseases', 'NCD', 'Cancer', 'Pharmacogenomics', 'Infectious Diseases', 'Popgen', 'Non-Rare & Non-Cancer']) assert.ok(data.includes(g), g);
+  for (const d of ['Variant Call Format files', 'PLINK binary format', 'HLA allele calls', 'star-allele calls', 'Larger genomic rearrangements', 'pseudonymised metadata']) assert.ok(data.includes(d), d);
+  assert.match(data, /href="https:\/\/data\.genomicsthailand\.com"/);
+  assert.doesNotMatch(html, /hover or focus to pause/);
+  assert.doesNotMatch(data, /\(51,461\)/);
 });
 
 test('dates & venue: date range, city, hotel TBA and airport', () => {
@@ -188,13 +190,6 @@ test('schedule: Friday shows no breakfast time (only supplied times are shown)',
   assert.ok(!friday.includes('07:00'), 'Friday breakfast time was not supplied by the organizers');
 });
 
-test('marquee: pauses on hover and keyboard focus (WCAG 2.2.2)', () => {
-  const css = readdirSync(new URL('../build/assets/css/', import.meta.url))
-    .map((f) => readFileSync(new URL(`../build/assets/css/${f}`, import.meta.url), 'utf8'))
-    .join('');
-  assert.match(css, /\.marquee[\w-]*:hover [^{]*\{[^}]*animation-play-state:\s*paused/);
-  assert.match(css, /\.marquee[\w-]*:focus-within [^{]*\{[^}]*animation-play-state:\s*paused/);
-});
 
 test('/data: content sits inside a padded container, not on the page edge', () => {
   const html = read('data/index.html');
