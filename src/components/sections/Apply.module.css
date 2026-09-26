@@ -1,12 +1,19 @@
-.grid { display: grid; gap: 48px; }
-.lead { font-size: clamp(1.5rem, 3vw, 2.5rem); font-weight: 500; letter-spacing: -0.03em; line-height: 1.1; max-width: 22ch; }
-.eligibility { display: inline-block; margin: 0 0 32px; padding: 10px 16px; border: 1px solid var(--ink); border-radius: 999px; font-weight: 600; }
-.list { list-style: none; padding: 0; margin: 8px 0 32px; border-top: 1px solid var(--rule); }
-.list li { padding: 10px 0; border-bottom: 1px solid var(--rule); }
-.cta { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+.grid { display: grid; gap: 32px; grid-template-areas: 'intro' 'cta' 'details'; }
+.intro { grid-area: intro; }
+.cta { grid-area: cta; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+.details { grid-area: details; }
+.lead { font-size: clamp(1.5rem, 3vw, 2.5rem); font-weight: 500; letter-spacing: -0.03em; line-height: 1.1; max-width: 22ch; margin: 0 0 24px; text-wrap: balance; }
+.eligibility { max-width: 60ch; margin: 0; padding: 14px 18px; border: 1px solid var(--ink); border-radius: 12px; font-weight: 600; }
+.subheading { font-size: clamp(1.25rem, 2.2vw, 1.75rem); font-weight: 500; letter-spacing: -0.02em; line-height: 1.15; margin: 48px 0 12px; }
+.details > .subheading:first-child { margin-top: 0; }
+.roles { font-size: clamp(1.05rem, 1.6vw, 1.25rem); margin: 0; }
+.list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--rule); }
+.list li { padding: 12px 0; border-bottom: 1px solid var(--rule); }
+.required { display: inline-block; margin-left: 10px; padding: 1px 8px; border: 1px solid var(--ink); border-radius: 999px; font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; vertical-align: middle; }
+.note { max-width: 60ch; margin: 0; }
 .small { font-size: 14px; color: var(--text-2); margin: 0; }
-.docs { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 8px; }
+.docs { list-style: none; padding: 0; margin: 8px 0 0; display: grid; gap: 8px; }
 @media (min-width: 997px) {
-  .grid { grid-template-columns: 7fr 5fr; }
+  .grid { grid-template-columns: 7fr 5fr; grid-template-areas: 'intro cta' 'details cta'; column-gap: 64px; row-gap: 48px; }
   .cta { position: sticky; top: 96px; align-self: start; }
 }

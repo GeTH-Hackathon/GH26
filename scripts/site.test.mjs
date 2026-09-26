@@ -313,3 +313,15 @@ test('/data: three real sub-headings in order, never in the label style, with on
   assert.ok(toc.length < html.length, 'missing on-this-page nav');
   for (const id of ['data-types', 'dataset-map', 'projects']) assert.match(toc.slice(0, 600), new RegExp(`href="#${id}"`));
 });
+
+test('apply: real sub-headings, roles on one line, Apply button before the criteria in reading order', () => {
+  const html = read('index.html');
+  const apply = html.slice(html.indexOf('id="apply"'), html.indexOf('id="organizers"'));
+  const h3s = [...apply.matchAll(/<h3([^>]*)>(.*?)<\/h3>/gs)].map((m) => ({attrs: m[1], text: m[2].replace(/<[^>]+>/g, '').trim()}));
+  assert.deepEqual(h3s.map((h) => h.text), ['Who should apply', 'Selection criteria', 'Before data access']);
+  for (const h of h3s) assert.doesNotMatch(h.attrs, /class="label"/, `${h.text} still uses the label style`);
+  assert.match(apply, /Researchers · Bioinformaticians · Clinicians · Data scientists/);
+  const button = apply.indexOf('Apply now ↗');
+  assert.ok(button > -1 && button < apply.indexOf('Who should apply'), 'Apply button should come before the details');
+  assert.match(apply, /Thai nationality[^<]*<span class="[^"]*">Required<\/span>/);
+});
