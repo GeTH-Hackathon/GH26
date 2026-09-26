@@ -107,7 +107,7 @@ A `null` value or `exact: false` renders with a small "TBA" tag.
 ## 5. Page content (home, in scroll order)
 
 1. **Hero**
-   - Status bar, the giant "geth." wordmark, the kicker "/ hackathon 2027", and the tagline "Unlocking 50,000 Thai genomes for national precision medicine."
+   - Status bar, the giant "GeTH Hackathon" wordmark (one line on desktop, two lines below 997px), the kicker "/ hackathon 2027", and the tagline "Unlocking 50,000 Thai genomes for national precision medicine."
    - Primary Apply button and a secondary "See the data ↓" link.
    - Barcode art.
 2. **/ objectives.** A numbered hairline list with three items, taken from brief §3:

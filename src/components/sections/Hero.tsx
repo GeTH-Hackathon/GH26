@@ -13,8 +13,12 @@ export default function Hero() {
         </div>
         <p className={styles.kicker}>/ hackathon 2027</p>
         <h1 className={styles.title}>
-          <span className={styles.wordmark} aria-hidden="true">geth.</span>
-          <span className="sr-only">{event.name}</span>
+          <span className={styles.wordmark}>
+            {event.brand.split(' ').map((word, i) => (
+              <span key={word} className={styles.line}>{i > 0 && ' '}{word}</span>
+            ))}
+          </span>
+          <span className="sr-only">{event.name.replace(event.brand, '')}</span>
         </h1>
         <div className={styles.row}>
           <p className={styles.tagline}>{event.tagline}</p>

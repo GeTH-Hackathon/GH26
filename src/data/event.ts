@@ -8,6 +8,7 @@ export type DataType = {name: string; description: string};
 
 export type EventInfo = {
   name: string;
+  brand: string;
   tagline: string;
   statusLine: string;
   dateRange: string;
@@ -38,6 +39,7 @@ const dataPortal: ExternalLink = {
 
 export const event: EventInfo = {
   name: 'GeTH Hackathon 2027',
+  brand: 'GeTH Hackathon',
   tagline: 'Unlocking 50,000 Thai genomes for national precision medicine.',
   statusLine: 'FEB 7–12 2027 \\ CHIANG MAI \\ 50K GENOMES',
   dateRange: '7–12 February 2027',

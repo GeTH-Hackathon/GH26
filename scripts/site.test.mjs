@@ -48,7 +48,10 @@ test('footer: sign-off and placeholder pages linked', () => {
 
 test('hero: wordmark, accessible title and status line', () => {
   const html = read('index.html');
-  assert.match(html, /<h1[^>]*>.*geth\..*GeTH Hackathon 2027.*<\/h1>/s);
+  const h1 = html.match(/<h1[^>]*>(.*?)<\/h1>/s)?.[1] ?? '';
+  assert.equal(h1.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim(), 'GeTH Hackathon 2027', 'h1 reads "GeTH Hackathon 2027"');
+  assert.doesNotMatch(h1, /aria-hidden/, 'visible wordmark is the accessible title');
+  assert.doesNotMatch(h1, /geth\./);
   assert.match(html, /FEB 7–12 2027 \\ CHIANG MAI \\ 50K GENOMES/);
   assert.match(html, /role="img"[^>]*aria-label="Barcode of 118 Genomics Thailand projects/);
 });
