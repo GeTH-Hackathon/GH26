@@ -1,7 +1,0 @@
-.list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--rule); }
-.row { display: grid; gap: 4px; padding: 20px 0; border-bottom: 1px solid var(--rule); }
-.what { color: var(--text-2); }
-.when { font-size: clamp(1.5rem, 3.4vw, 2.75rem); font-weight: 500; letter-spacing: -0.03em; line-height: 1.1; }
-@media (min-width: 997px) {
-  .row { grid-template-columns: 1fr 2fr; align-items: baseline; }
-}

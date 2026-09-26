@@ -2,12 +2,9 @@ import Layout from '@theme/Layout';
 import Hero from '@site/src/components/sections/Hero';
 import Objectives from '@site/src/components/sections/Objectives';
 import Data from '@site/src/components/sections/Data';
-import DatesVenue from '@site/src/components/sections/DatesVenue';
-import ImportantDates from '@site/src/components/sections/ImportantDates';
-import Schedule from '@site/src/components/sections/Schedule';
+import Road from '@site/src/components/sections/Road';
 import Apply from '@site/src/components/sections/Apply';
 import Organizers from '@site/src/components/sections/Organizers';
-import Links from '@site/src/components/sections/Links';
 
 export default function Home() {
   return (
@@ -16,12 +13,9 @@ export default function Home() {
         <Hero />
         <Objectives />
         <Data />
-        <DatesVenue />
-        <ImportantDates />
-        <Schedule />
+        <Road />
         <Apply />
         <Organizers />
-        <Links />
       </main>
     </Layout>
   );

@@ -98,7 +98,7 @@ test('dates & venue: date range, city, hotel TBA and airport', () => {
 test('important dates: four milestones, inexact ones tagged TBA', () => {
   const html = read('index.html');
   const section = html.slice(html.indexOf('id="important-dates"'), html.indexOf('id="schedule"'));
-  for (const d of ['November 2026', 'December 2026', 'January 2027', '7–12 February 2027']) assert.ok(section.includes(d), d);
+  for (const d of ['November 2026', 'December 2026', 'January 2027']) assert.ok(section.includes(d), d);
   assert.equal((section.match(/class="tba"/g) ?? []).length, 3);
 });
 
@@ -108,7 +108,7 @@ test('schedule: supplied times and every day present', () => {
   for (const s of ['12:30', 'Registration opens', '13:00', 'Opening', 'Self-introduction of participants', 'TRE tutorial', 'Topic proposals', '07:00–09:00', '12:00', 'Wrap-up session', 'Depart from venue to CNX airport']) {
     assert.ok(section.includes(s), `missing "${s}"`);
   }
-  for (const d of ['Sun 7 Feb', 'Mon 8 Feb', 'Tue 9 Feb', 'Wed 10 Feb', 'Thu 11 Feb', 'Fri 12 Feb']) assert.ok(section.includes(d), d);
+  for (const d of ['Sun 7 Feb', 'Mon 8 – Thu 11 Feb', 'Fri 12 Feb']) assert.ok(section.includes(d), d);
 });
 
 test('organizers: roles and all partners', () => {
@@ -121,17 +121,20 @@ test('organizers: roles and all partners', () => {
 
 test('home: every section present in spec order', () => {
   const html = read('index.html');
-  const ids = ['objectives', 'data', 'dates', 'important-dates', 'schedule', 'apply', 'organizers', 'links'];
+  const ids = ['objectives', 'data', 'dates', 'important-dates', 'schedule', 'apply', 'organizers'];
   const positions = ids.map((id) => html.indexOf(`id="${id}"`));
   positions.forEach((p, i) => assert.ok(p > -1, `missing #${ids[i]}`));
   assert.deepEqual([...positions].sort((a, b) => a - b), positions, 'sections out of order');
 });
 
-test('links: external links open safely in a new tab', () => {
+test('links section removed; its links live in the footer and open safely in a new tab', () => {
   const html = read('index.html');
-  const section = html.slice(html.indexOf('id="links"'));
-  assert.match(section, /href="https:\/\/data\.genomicsthailand\.com"[^>]*target="_blank"[^>]*rel="noopener noreferrer"/);
-  assert.match(section, /href="https:\/\/2026\.biohackathon\.org"/);
+  assert.doesNotMatch(html, /id="links"/);
+  const footer = html.slice(html.lastIndexOf('<footer'));
+  assert.match(footer, /href="https:\/\/data\.genomicsthailand\.com"[^>]*target="_blank"[^>]*rel="noopener noreferrer"/);
+  assert.match(footer, /href="https:\/\/2026\.biohackathon\.org"/);
+  assert.match(footer, /href="\/terms\/"/);
+  assert.match(footer, /href="\/tre-guidelines\/"/);
 });
 
 test('/data: first page of 10 projects, awkward rows rendered faithfully', () => {
@@ -178,9 +181,6 @@ test('home: Terms no longer marked "coming soon"; TRE guidelines still are', () 
   // Apply section: the Terms row (up to the TRE row) has no "Coming soon" tag; the TRE row keeps it.
   assert.doesNotMatch(between('id="apply"', 'Terms & Conditions', 'TRE guideline instructions'), /Coming soon/);
   assert.match(between('id="apply"', 'TRE guideline instructions', '</aside>'), /Coming soon/);
-  // Links section: same rule for the "Will be announced soon" notes.
-  assert.doesNotMatch(between('id="links"', 'Terms & Conditions', 'TRE guideline instructions'), /Will be announced soon/);
-  assert.match(between('id="links"', 'TRE guideline instructions', '</ul>'), /Will be announced soon/);
 });
 
 test('schedule: Friday shows no breakfast time (only supplied times are shown)', () => {
@@ -289,7 +289,7 @@ test('every slash heading is sentence case: "/ " then an upper-case first letter
   for (const page of PAGES) {
     for (const m of read(page).matchAll(/<(h1|h2) class="slash-heading">(.*?)<\/\1>/gs)) all.push(`${page}: ${m[2].replace(/<[^>]+>/g, '').trim()}`);
   }
-  assert.ok(all.length >= 11, `expected every section heading, got ${all.length}`);
+  assert.ok(all.length >= 8, `expected every section heading, got ${all.length}`); // 5 home sections + /data, /terms, /tre-guidelines
   const bad = all.filter((h) => !/: \/ [A-Z]/.test(h));
   assert.deepEqual(bad, []);
   assert.match(read('index.html'), /\/ Hackathon 2027/);
@@ -363,4 +363,15 @@ test('reveal hooks on objectives, apply and organizers; Apply section shows the 
   assert.ok((part('apply', 'organizers').match(/data-reveal/g) ?? []).length >= 3);
   assert.ok((part('organizers').match(/data-reveal/g) ?? []).length >= 3);
   assert.equal((html.match(/Apply by December 2026 · Results January 2027/g) ?? []).length, 2, 'hero and Apply');
+});
+
+test('road: one timeline, milestones then the three stretches of the week, in order', () => {
+  const html = read('index.html');
+  const road = html.slice(html.indexOf('id="dates"'), html.indexOf('id="apply"'));
+  assert.equal((road.match(/data-stop/g) ?? []).length, 6);
+  const order = ['Applications open', 'Application deadline', 'Participants announced', 'Opening workshop', 'Hackathon days ×4', 'Wrap-up'];
+  const pos = order.map((s) => road.indexOf(s));
+  pos.forEach((p, i) => assert.ok(p > -1, `missing ${order[i]}`));
+  assert.deepEqual([...pos].sort((a, b) => a - b), pos);
+  assert.match(road, /<h2 class="slash-heading">.*The road to Chiang Mai\.<\/h2>/s);
 });

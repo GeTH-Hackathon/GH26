@@ -1,0 +1,25 @@
+.venue { margin: 0 0 clamp(32px, 5vw, 56px); font-size: clamp(1.05rem, 1.6vw, 1.25rem); max-width: 70ch; }
+.viewport { position: relative; }
+.rail { position: relative; max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
+.progress { display: none; }
+.track { list-style: none; margin: 0; padding: 0; }
+.stop { position: relative; margin-left: 5px; padding: 0 0 28px 28px; border-left: 1px solid var(--rule); }
+.dot { position: absolute; left: -6px; top: 4px; width: 11px; height: 11px; border-radius: 50%; background: var(--paper); border: 2px solid var(--ink); }
+.onSite .dot { background: var(--accent); border-color: var(--accent); }
+.when { margin: 0 0 4px; font-size: 13px; font-weight: 600; letter-spacing: 0.02em; color: var(--text-2); }
+.title { margin: 0 0 8px; font-size: clamp(1.25rem, 2.2vw, 1.75rem); font-weight: 500; letter-spacing: -0.02em; line-height: 1.15; }
+.items { list-style: none; padding: 0; margin: 0; max-width: 34rem; }
+.items li { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 8px; padding: 6px 0; border-top: 1px solid var(--rule); font-size: 15px; }
+.time { color: var(--text-2); font-variant-numeric: tabular-nums; }
+
+/* Desktop motion only (roadScene sets data-layout): a horizontal rail that scrolls sideways while pinned. */
+.viewport[data-layout='horizontal'] { overflow: hidden; }
+.viewport[data-layout='horizontal'] .rail { max-width: none; width: max-content; margin: 0; padding: 12px var(--gutter) 0 max(var(--gutter), calc((100vw - var(--maxw)) / 2 + var(--gutter))); }
+.viewport[data-layout='horizontal'] .progress { display: block; position: absolute; top: 12px; left: 0; right: 0; height: 2px; background: var(--accent); transform-origin: left center; }
+.viewport[data-layout='horizontal'] .track { display: flex; gap: 32px; }
+.viewport[data-layout='horizontal'] .stop { width: min(30vw, 380px); margin: 0; padding: 24px 0 0; border-left: 0; border-top: 2px solid var(--rule); opacity: 0.45; transition: opacity 150ms ease; }
+.viewport[data-layout='horizontal'] .stop[data-current] { opacity: 1; }
+.viewport[data-layout='horizontal'] .dot { left: 0; top: -7px; }
+@media (prefers-reduced-motion: reduce) {
+  .viewport[data-layout='horizontal'] .stop { transition: none; }
+}
