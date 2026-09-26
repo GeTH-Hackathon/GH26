@@ -26,7 +26,7 @@ The **Links** section is removed; its links already live in the footer (external
 ### Act 1: Hero
 - Order on load: status line fades in (0ms) → "GeTH" then "Hackathon" rise from a clip mask (each 700ms, ease-out-expo, 90ms apart) → tagline and buttons fade up 12px (500ms) → barcode bars scale up from the baseline left to right (total 600ms, per-bar stagger derived from position). Total ≤ 1.2s.
 - The primary action gains its deadline: the Apply button is followed by the line **"Apply by December 2026 · Results January 2027"**, read from `event.importantDates`.
-- Tagline copy changes (the critique flagged "Unlocking" as a banned buzzword). New text, stored in `event.tagline`: **"50,000 Thai genomes. Six days in Chiang Mai. Real clinical questions."**
+- Tagline copy changes (the critique flagged "Unlocking" as a banned buzzword). Stored in `event.tagline`; the user chose **"Unlocking 50k Thai Genomes for National Precision Medicine."** (2026-09-27)
 - The status-line "Apply ↗" in-page link loses the external-link arrow and becomes "Apply ↓".
 
 ### Act 2: Why (Objectives)
@@ -47,7 +47,7 @@ The previous ghost number "(51,461)" and the duplicate counter row are removed (
 
 Phone: no pin. The strip shows, then regroups once when the panel scrolls into view (1s, ease-in-out-cubic), then steps 3–4 reveal inline. Reduced motion / no JS: the grouped layout, data-type list and note are shown statically.
 
-### Act 4: The road to Chiang Mai (pinned on desktop)
+### Act 4: The road to GeTH Hackathon 2027 (pinned on desktop; heading chosen by the user 2026-09-27)
 One timeline replaces Dates & venue, Important dates and Schedule:
 - **Milestones:** Applications open (November 2026) → Application deadline (December 2026) → Participants announced (January 2027) → the six event days (Sun 7 – Fri 12 February 2027), each day showing its title and agenda items (from `schedule.ts`). TBA tags stay on inexact dates.
 - **Venue block** at the start: "Chiang Mai, Thailand · hotel to be announced · nearest airport CNX".
