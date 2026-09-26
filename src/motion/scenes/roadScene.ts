@@ -1,5 +1,6 @@
 import type {Scene} from '../useMotionScene';
 import {revealItems} from './reveal';
+import {registerAnchorResolver} from '../scrollAnchor';
 
 // Desktop: switch to the horizontal layout, pin the section, scrub the rail sideways and advance the current stop.
 // Phone: keep the vertical timeline and reveal stops as they enter.
@@ -38,8 +39,16 @@ export const roadScene: Scene = ({gsap, ScrollTrigger, root, conditions}) => {
     },
   });
   tl.to(rail, {x: () => -distance(), ease: 'none'}, 0);
+  // A deep link to a stop scrolls to the point where that stop is the current one.
+  const st = tl.scrollTrigger;
+  const unregister = registerAnchorResolver((el) => {
+    const i = stops.indexOf(el as HTMLElement);
+    if (i < 0 || !st) return null;
+    return st.start + (i / Math.max(1, stops.length - 1)) * (st.end - st.start);
+  });
   if (progress) tl.fromTo(progress, {scaleX: 0}, {scaleX: 1, ease: 'none'}, 0);
   return () => {
+    unregister();
     root.removeAttribute('data-layout');
     stops.forEach((s) => s.removeAttribute('data-current'));
   };

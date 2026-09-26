@@ -13,7 +13,8 @@
     "clear": "docusaurus clear",
     "typecheck": "tsc",
     "test": "node --test scripts/build-data.test.mjs scripts/workflow.test.mjs scripts/filter.test.mjs scripts/paginate.test.mjs scripts/build-graph.test.mjs scripts/barcode.test.mjs",
-    "test:site": "node --test scripts/site.test.mjs"
+    "test:site": "node --test scripts/site.test.mjs",
+    "test:smoke": "node --test --test-concurrency=1 scripts/smoke.test.mjs"
   },
   "dependencies": {
     "@docusaurus/core": "3.10.2",
@@ -32,6 +33,7 @@
     "@docusaurus/types": "3.10.2",
     "@types/react": "^19.0.0",
     "d3-force": "^3.0.0",
+    "playwright": "^1.63.0",
     "typescript": "~6.0.2"
   },
   "browserslist": {

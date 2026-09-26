@@ -24,5 +24,7 @@
 @media (min-width: 997px) {
   /* 7 legend entries under their columns: the same 4% gap as the SVG layout. */
   .legend { grid-template-columns: repeat(7, minmax(0, 1fr)); column-gap: 4%; }
+  /* The pinned panel must fit under the navbar: the chart takes what the rest of the panel leaves. */
+  .svg { height: clamp(150px, calc(100svh - 584px), 340px); } /* panel minus chart ≈ 476px; leaves 24px slack under the pin guard */
   .types { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 32px; }
 }
