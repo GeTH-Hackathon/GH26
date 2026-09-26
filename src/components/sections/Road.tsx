@@ -34,7 +34,7 @@ export default function Road() {
   return (
     <section id={useAnchor('dates')} className="section">
       <div className="container-swiss">
-        <SlashHeading>The road to Chiang Mai</SlashHeading>
+        <SlashHeading>The road to GeTH Hackathon 2027</SlashHeading>
         <p className={styles.venue}>
           <strong>{event.dateRange}</strong> · {venue.city}, {venue.country} · {venue.name ?? <>Hotel to be announced<TBA /></>} · Nearest airport: {venue.airport}
         </p>

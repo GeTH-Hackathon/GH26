@@ -42,7 +42,7 @@ const dataPortal: ExternalLink = {
 export const event: EventInfo = {
   name: 'GeTH Hackathon 2027',
   brand: 'GeTH Hackathon',
-  tagline: '50,000 Thai genomes. Six days in Chiang Mai. Real clinical questions.',
+  tagline: 'Unlocking 50k Thai Genomes for National Precision Medicine.',
   statusLine: 'FEB 7–12 2027 \\ CHIANG MAI \\ 50K GENOMES',
   dateRange: '7–12 February 2027',
   dateNote: 'Sunday afternoon to Friday morning. Six days on site.',

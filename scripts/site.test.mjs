@@ -346,11 +346,10 @@ test('motion: GSAP is code-split out of the main bundle', () => {
   assert.ok(files.some((f) => readFileSync(new URL(f, dir), 'utf8').includes('ScrollTrigger')), 'no chunk contains ScrollTrigger');
 });
 
-test('hero: new tagline, deadline next to Apply, in-page status link', () => {
+test('hero: tagline, deadline next to Apply, in-page status link', () => {
   const html = read('index.html');
   const hero = html.slice(html.indexOf('<header'), html.indexOf('id="objectives"'));
-  assert.match(hero, /50,000 Thai genomes\. Six days in Chiang Mai\. Real clinical questions\./);
-  assert.doesNotMatch(html, /Unlocking/);
+  assert.match(hero, /Unlocking 50k Thai Genomes for National Precision Medicine\./);
   assert.match(hero, /Apply by December 2026 · Results January 2027/);
   assert.match(hero, /href="#apply"[^>]*>Apply ↓</);
   for (const k of ['status', 'line', 'rest', 'barcode']) assert.match(hero, new RegExp(`data-intro="${k}"`));
@@ -373,5 +372,5 @@ test('road: one timeline, milestones then the three stretches of the week, in or
   const pos = order.map((s) => road.indexOf(s));
   pos.forEach((p, i) => assert.ok(p > -1, `missing ${order[i]}`));
   assert.deepEqual([...pos].sort((a, b) => a - b), pos);
-  assert.match(road, /<h2 class="slash-heading">.*The road to Chiang Mai\.<\/h2>/s);
+  assert.match(road, /<h2 class="slash-heading">.*The road to GeTH Hackathon 2027\.<\/h2>/s);
 });
