@@ -2,18 +2,36 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Repository status
+## Commands
 
-This repo (`GeTH-hackathon-web`, README title "GH26") is at its starting point: there is no application code, build system, package manifest, linter, or test suite yet. When a stack is chosen, add its build, dev-server, lint, and single-test commands here.
+```bash
+npm start                         # dev server (runs `npm run data` first) at http://localhost:3000/GH26/
+npm run build                     # regenerates src/data/wgs.json, builds to build/
+npm test                          # unit tests for scripts/build-data.mjs (node:test)
+node --test --test-name-pattern="CRLF" scripts/build-data.test.mjs   # single test
+npm run build && npm run test:site   # assertions on built HTML (scripts/site.test.mjs)
+npm run typecheck
+```
 
-The only content is reference material in `appendix/`:
+## Architecture
 
-- `appendix/genomics_thailand_hackathon_brief.md`: condensed English brief of the HSRI-funded **Genomics Thailand Hackathon** (FY2026 / B.E. 2569). Host: Chiang Mai University, Faculty of Medicine. Data partner: NSTDA. It is a 6-day event in Chiang Mai with about 50 participants analysing the first ~50,000 Thai whole-genome sequences. Deliverables: a Genomic Landscape Report, a prototype analytics dashboard, and a research network. The brief is the source of truth for event facts (objectives, timeline, governance, budget, risks).
-- `appendix/wgs_projects_and_volunteer_counts.txt`: tab-separated table. Columns: `Project ID`, `Type` (Research/Service), `Group`, `Project Name`, `WGSs`. It has 118 data rows totalling 51,461 WGSs. Groups are Cancer, Rare Diseases, Pharmacogenomics, NCD, Infectious Diseases, Popgen, and Non-Rare & Non-Cancer. The last line has no trailing newline, so `wc -l` undercounts by one.
-  - Data quirks to keep in mind: one Project ID is not in `YY-NNN` form (`709/2561 (EC3)`). Some `Group` values contradict the project name (e.g. `709/2561 (EC3)` and `00-000`). The `00-001` Service row has an empty name and holds the largest count (13,017).
+- Docusaurus 3.10 with only the pages plugin (docs and blog disabled) and `future.v4` (Docusaurus Faster, so `@docusaurus/faster` is required). `baseUrl` comes from `BASE_URL` (default `/GH26/`) and `url` from `SITE_URL`. `trailingSlash: true`, and both `onBrokenLinks` and `onBrokenAnchors` are `'throw'`.
+- The home page (`src/pages/index.tsx`) is a stack of section components in `src/components/sections/`. Each section has an anchor id (`objectives`, `data`, `dates`, `important-dates`, `schedule`, `apply`, `organizers`, `links`) that the navbar and tests rely on. A section's id must be set with `id={useAnchor('x')}` (`src/lib/useAnchor.ts`), or the anchor checker fails the build.
+- **All editable facts** (dates, venue, form URL, partners, links, copy) live in `src/data/event.ts`, and the agenda lives in `src/data/schedule.ts`. Sections must not hard-code these. `formUrl: null` renders a disabled Apply button.
+- Data flow: `data/wgs_projects.tsv` → `scripts/build-data.mjs` (runs as prestart/prebuild) → `src/data/wgs.json` (committed, but regenerated on every build). Both the barcode art and the `/data` table read it.
+- The footer is swizzled at `src/theme/Footer/`. Design tokens and shared classes (`container-swiss`, `section`, `slash-heading`, `btn`, `tba`, `label`) are in `src/css/custom.css`.
+- `scripts/site.test.mjs` normalises the minified HTML: it strips `<!-- -->`, restores attribute quotes and decodes `&amp;`. The swc minifier drops optional end tags (`</p>`, `</li>`, `</td>`), so assertions must not rely on them.
+- Deploy: `.github/workflows/deploy.yml` runs tests and the build, then deploys with `actions/deploy-pages`.
+
+## Reference material
+
+`appendix/` is git-ignored because the repo is public and the brief contains internal budget data. It holds:
+
+- `appendix/genomics_thailand_hackathon_brief.md`: the grant brief and source of event facts. The site intentionally omits the budget.
+- `appendix/wgs_projects_and_volunteer_counts.txt`: the original of `data/wgs_projects.tsv`. It has 118 rows totalling 51,461 WGSs. Quirks: the ID `709/2561 (EC3)`, group labels that contradict project names (`709/2561 (EC3)`, `00-000`), and `00-001` has an empty name and the largest count (13,017). The site shows these rows as-is.
 
 ## Domain constraints that shape anything built here
 
 - All real genomic analysis happens inside NSTDA's Secure Data Environment, which allows no data egress. Only aggregate, non-identifiable results leave it, and only through an airlock review. Any website or dashboard in this repo must therefore work with **aggregate/summary data only**. Never design features that ingest, store, or display individual-level genomic or participant data.
-- The project-level counts in `appendix/` are already aggregate and are fine to publish or visualise.
+- The project-level counts in `data/wgs_projects.tsv` are already aggregate and are fine to publish or visualise.
 - The public site is English only (decided 2026-09-26); no i18n.
