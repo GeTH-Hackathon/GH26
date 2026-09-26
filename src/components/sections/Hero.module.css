@@ -1,0 +1,14 @@
+.hero { padding: 12px 0 clamp(48px, 8vw, 96px); }
+.status { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; }
+.status a { text-decoration: none; }
+.kicker { margin: clamp(40px, 8vw, 112px) 0 0; font-size: clamp(1rem, 2vw, 1.5rem); color: var(--mute); }
+.title { margin: 0; line-height: 0.8; }
+.wordmark { display: block; color: var(--accent); font-size: clamp(5rem, 36vw, 34rem); font-weight: 600; letter-spacing: -0.06em; line-height: 0.8; margin-left: -0.04em; }
+.row { display: grid; gap: 24px; margin-top: clamp(24px, 4vw, 48px); }
+.tagline { margin: 0; max-width: 18ch; font-size: clamp(1.5rem, 3.4vw, 3rem); font-weight: 500; letter-spacing: -0.03em; line-height: 1.05; }
+.ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
+.barcode { display: block; margin-top: clamp(32px, 6vw, 72px); }
+@media (min-width: 997px) {
+  .row { grid-template-columns: 7fr 5fr; align-items: end; }
+  .ctas { justify-content: flex-end; }
+}

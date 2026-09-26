@@ -1,0 +1,7 @@
+.marquee { overflow: hidden; border-block: 1px solid currentColor; padding: 14px 0; }
+.track { display: flex; width: max-content; white-space: pre; font-size: clamp(1.25rem, 3vw, 2.5rem); font-weight: 500; letter-spacing: -0.02em; animation: scroll 40s linear infinite; }
+@keyframes scroll { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .track { animation: none; width: auto; white-space: normal; }
+  .track span[aria-hidden='true'] { display: none; }
+}
