@@ -17,3 +17,10 @@
 @media (min-width: 997px) {
   .types { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 48px; }
 }
+.search { display: grid; gap: 8px; margin: 24px 0 16px; max-width: 36rem; }
+.searchInput { width: 100%; border: 0; border-bottom: 2px solid var(--ink); border-radius: 0; background: transparent; padding: 8px 0; font: 500 clamp(1.25rem, 2.4vw, 1.75rem)/1.2 var(--font); letter-spacing: -0.02em; color: var(--ink); }
+.searchInput::placeholder { color: var(--mute); }
+.searchInput:focus { outline: none; border-bottom-color: var(--accent); }
+.status { margin: 0; font-size: 14px; color: #555; font-variant-numeric: tabular-nums; }
+.empty { padding: 24px 0 !important; color: #555; }
+.searchInput::-webkit-search-cancel-button { filter: grayscale(1) brightness(0); cursor: pointer; }

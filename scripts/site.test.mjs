@@ -158,3 +158,17 @@ test('marquee: pauses on hover and keyboard focus (WCAG 2.2.2)', () => {
   assert.match(css, /\.marquee[\w-]*:hover [^{]*\{[^}]*animation-play-state:\s*paused/);
   assert.match(css, /\.marquee[\w-]*:focus-within [^{]*\{[^}]*animation-play-state:\s*paused/);
 });
+
+test('/data: content sits inside a padded container, not on the page edge', () => {
+  const html = read('data/index.html');
+  assert.match(html, /<main[^>]*class="section[^"]*"[^>]*><div class="container-swiss">/);
+  assert.doesNotMatch(html, /<main[^>]*class="[^"]*container-swiss/);
+});
+
+test('/data: project table is searchable and captioned', () => {
+  const html = read('data/index.html');
+  assert.match(html, /<label[^>]*for="project-search"[^>]*>Search projects/);
+  assert.match(html, /<input[^>]*type="search"[^>]*id="project-search"|<input[^>]*id="project-search"[^>]*type="search"/);
+  assert.match(html, /aria-live="polite"[^>]*>Showing 118 of 118 projects · 51,461 genomes/);
+  assert.match(html, /<caption[^>]*>/);
+});
