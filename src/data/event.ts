@@ -50,7 +50,7 @@ export const event: EventInfo = {
     country: 'Thailand',
     airport: 'Chiang Mai International Airport (CNX)',
   },
-  formUrl: null,
+  formUrl: 'https://forms.gle/f76Bmzxu144CktoC6',
   applyOpensLabel: 'Applications open November 2026',
   seatsLabel: 'About 50 seats',
   contactEmail: null,

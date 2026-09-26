@@ -30,13 +30,13 @@ test('apply: no dead links anywhere', () => {
   }
 });
 
-test('apply: disabled button with opening message while no form url, else a Google Form link', () => {
+test('apply: Apply buttons link to the Google Form in a new tab; no disabled placeholder left', () => {
   const html = read('index.html');
   assert.match(html, /id="apply"/);
-  const hasForm = /href="https:\/\/(?:docs\.google\.com\/forms|forms\.gle)\/[^"]+"/.test(html);
-  if (!hasForm) {
-    assert.match(html, /<button[^>]*disabled[^>]*>Applications open November 2026<\/button>/);
-  }
+  const links = html.match(/<a[^>]*href="https:\/\/forms\.gle\/f76Bmzxu144CktoC6"[^>]*>Apply now ↗<\/a>/g) ?? [];
+  assert.equal(links.length, 2, 'hero and apply section');
+  for (const a of links) assert.match(a, /target="_blank"[^>]*rel="noopener noreferrer"/);
+  assert.doesNotMatch(html, /<button[^>]*disabled[^>]*>Applications open/);
 });
 
 test('footer: sign-off and placeholder pages linked', () => {
