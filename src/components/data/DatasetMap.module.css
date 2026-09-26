@@ -1,4 +1,4 @@
-.figure { margin: 12px 0 64px; }
+.figure { margin: 12px 0 0; }
 .caption { max-width: 70ch; margin-bottom: 16px; color: var(--text-2); font-size: 14px; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
 .chip { font: 500 13px/1 var(--font); color: var(--ink); background: transparent; border: 1px solid var(--rule); border-radius: 999px; padding: 8px 12px; cursor: pointer; }

@@ -300,3 +300,16 @@ test('every slash heading is sentence case: "/ " then an upper-case first letter
   assert.match(read('index.html'), /\/ Hackathon 2027/);
   assert.doesNotMatch(builtCss(), /\.slash-heading\{[^}]*text-transform:\s*lowercase/);
 });
+
+test('/data: three real sub-headings in order, never in the label style, with on-this-page links', () => {
+  const html = read('data/index.html');
+  const h2s = [...html.matchAll(/<h2([^>]*)>(.*?)<\/h2>/gs)].map((m) => ({attrs: m[1], text: m[2].replace(/<[^>]+>/g, '').trim()}));
+  assert.deepEqual(h2s.map((h) => h.text), ['Data types', 'Dataset map', 'Projects contributing genomes']);
+  for (const h of h2s) assert.doesNotMatch(h.attrs, /class="label"/, `${h.text} still uses the label style`);
+  for (const id of ['data-types', 'dataset-map', 'projects']) {
+    assert.match(html, new RegExp(`<section[^>]*id="${id}"`), `missing section #${id}`);
+  }
+  const toc = html.slice(html.search(/<nav[^>]*aria-label="On this page"/));
+  assert.ok(toc.length < html.length, 'missing on-this-page nav');
+  for (const id of ['data-types', 'dataset-map', 'projects']) assert.match(toc.slice(0, 600), new RegExp(`href="#${id}"`));
+});

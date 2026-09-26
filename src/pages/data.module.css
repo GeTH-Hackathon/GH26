@@ -1,7 +1,7 @@
 .stats { display: flex; flex-wrap: wrap; gap: 24px 64px; margin: 0 0 24px; }
 .stats dd { margin: 0; font-size: clamp(2rem, 5vw, 4rem); font-weight: 500; letter-spacing: -0.04em; line-height: 1; }
-.note { max-width: 60ch; margin-bottom: 64px; }
-.types { display: grid; gap: 0; margin: 12px 0 64px; border-top: 1px solid var(--rule); }
+.note { max-width: 60ch; margin-bottom: 32px; }
+.types { display: grid; gap: 0; margin: 24px 0 0; border-top: 1px solid var(--rule); }
 .type { display: grid; gap: 4px; padding: 16px 0; border-bottom: 1px solid var(--rule); }
 .type dt { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em; }
 .type dd { margin: 0; }
@@ -35,3 +35,11 @@
 .pageStep[disabled] { color: var(--mute); cursor: not-allowed; }
 .gap { display: flex; align-items: center; padding: 0 4px; color: var(--mute); }
 .pageOf { margin-left: auto; font-size: 14px; color: var(--text-2); font-variant-numeric: tabular-nums; }
+
+/* Page structure: on-this-page links, then three parts, each opened by a real sub-heading. */
+.toc { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 20px; padding: 16px 0; border-block: 1px solid var(--rule); }
+.toc ul { display: flex; flex-wrap: wrap; gap: 8px 24px; list-style: none; margin: 0; padding: 0; }
+.toc a { font-size: 16px; font-weight: 500; }
+.part { margin-top: clamp(56px, 8vw, 112px); scroll-margin-top: 80px; }
+.subheading { font-size: clamp(1.75rem, 3.5vw, 2.75rem); font-weight: 500; letter-spacing: -0.03em; line-height: 1.05; margin: 0 0 12px; text-wrap: balance; }
+.after { margin-top: 48px; }
