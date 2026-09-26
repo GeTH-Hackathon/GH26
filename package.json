@@ -12,7 +12,7 @@
     "serve": "docusaurus serve",
     "clear": "docusaurus clear",
     "typecheck": "tsc",
-    "test": "node --test scripts/build-data.test.mjs",
+    "test": "node --test scripts/build-data.test.mjs scripts/workflow.test.mjs",
     "test:site": "node --test scripts/site.test.mjs"
   },
   "dependencies": {

@@ -17,7 +17,7 @@ npm run typecheck
 
 - **Dates, venue, Google Form URL, contact, partners, links:** edit `src/data/event.ts` only. Setting `formUrl` turns the disabled Apply button into a live link. A `null` value or `exact: false` shows a TBA tag.
 - **Schedule:** `src/data/schedule.ts`.
-- **Genome counts:** replace `data/wgs_projects.tsv` (tab-separated, header `Project ID	Type	Group	Project Name	WGSs`). The build fails with a line number if a row is malformed.
+- **Genome counts:** replace `data/wgs_projects.tsv` (tab-separated, header `Project ID	Type	Group	Project Name	WGSs`). The build fails with a line number if a row is malformed. The tests pin the current totals (51,461 WGSs, 118 projects, 7 groups), so after a data refresh update the expected numbers in `scripts/build-data.test.mjs` ("real file" test) and `scripts/site.test.mjs` (`(51,461)`, `118`, group names). Also update the "50K" and "50,000" copy in `src/data/event.ts` and `docusaurus.config.ts` if it changes, and add any new disease group to `src/data/groups.ts` (unknown groups are shown in grey).
 - **Logos:** put the files in `static/img/logos/` and set `logo: '/img/logos/<file>'` on the partner in `event.ts`.
 - **Terms & Conditions / TRE guidelines:** edit `src/pages/terms.md` and `src/pages/tre-guidelines.md`.
 

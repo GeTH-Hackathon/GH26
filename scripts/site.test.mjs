@@ -2,7 +2,7 @@
 // Run with: npm run build && npm run test:site
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
+import {readFileSync, readdirSync} from 'node:fs';
 
 const BASE = process.env.BASE_URL ?? '/GH26/';
 // The Faster (swc) minifier drops attribute quotes and optional end tags, and React adds `<!-- -->`
@@ -142,4 +142,19 @@ test('placeholder pages say "Will be announced soon" and link back to apply', ()
     assert.match(html, /Will be announced soon\./, page);
     assert.match(html, /href="[^"]*#apply"/, page);
   }
+});
+
+test('schedule: Friday shows no breakfast time (only supplied times are shown)', () => {
+  const html = read('index.html');
+  const friday = html.slice(html.indexOf('Fri 12 Feb'), html.indexOf('id="apply"'));
+  assert.ok(friday.includes('Breakfast'));
+  assert.ok(!friday.includes('07:00'), 'Friday breakfast time was not supplied by the organizers');
+});
+
+test('marquee: pauses on hover and keyboard focus (WCAG 2.2.2)', () => {
+  const css = readdirSync(new URL('../build/assets/css/', import.meta.url))
+    .map((f) => readFileSync(new URL(`../build/assets/css/${f}`, import.meta.url), 'utf8'))
+    .join('');
+  assert.match(css, /\.marquee[\w-]*:hover [^{]*\{[^}]*animation-play-state:\s*paused/);
+  assert.match(css, /\.marquee[\w-]*:focus-within [^{]*\{[^}]*animation-play-state:\s*paused/);
 });

@@ -47,7 +47,7 @@ export const schedule: ScheduleDay[] = [
     kind: 'wrapup',
     title: 'Wrap-up',
     items: [
-      {time: '07:00–09:00', title: 'Breakfast'},
+      {time: null, title: 'Breakfast'},
       {time: null, title: 'Wrap-up session'},
       {time: null, title: 'Depart from venue to CNX airport'},
     ],
